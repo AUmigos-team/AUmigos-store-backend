@@ -9,6 +9,7 @@ drop table if exists Review;
 drop table if exists CustomerOrder;
 drop table if exists Stock;
 drop table if exists Product;
+drop table if exists Subcategory;
 drop table if exists Category;
 drop table if exists Client;
 drop table if exists Status;
@@ -19,13 +20,20 @@ create table Category (
     name varchar(100) not null
 );
 
+create table Subcategory (
+    id         int primary key auto_increment,
+    name       varchar(100) not null,
+    categoryId int,
+    foreign key (categoryId) references Category(id)
+);
+
 create table Product (
     id int primary key auto_increment,
     name varchar(100) not null,
     description text,
     price decimal(10,2) not null,
-    categoryId int,
-    foreign key (categoryId) references Category(id)
+    subcategoryId int,
+    foreign key (subcategoryId) references Subcategory(id)
 );
 
 create table Stock (
