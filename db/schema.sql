@@ -69,6 +69,7 @@ create table CustomerOrder (
     date date not null,
     statusId int,
     paymentMethodId int,
+    totalValue decimal(10,2) not null,
     foreign key (clientId) references Client(id),
     foreign key (statusId) references Status(id),
     foreign key (paymentMethodId) references PaymentMethod(id)
