@@ -9,6 +9,7 @@ drop table if exists Review;
 drop table if exists CustomerOrder;
 drop table if exists Stock;
 drop table if exists Product;
+drop table if exists Brand;
 drop table if exists Subcategory;
 drop table if exists Category;
 drop table if exists Client;
@@ -27,13 +28,20 @@ create table Subcategory (
     foreign key (categoryId) references Category(id)
 );
 
+create table Brand (
+    id int primary key auto_increment,
+    name varchar(100) not null
+);
+
 create table Product (
     id int primary key auto_increment,
     name varchar(100) not null,
     description text,
     price decimal(10,2) not null,
     subcategoryId int,
-    foreign key (subcategoryId) references Subcategory(id)
+    brandId int,
+    foreign key (subcategoryId) references Subcategory(id),
+    foreign key (brandId) references Brand(id)
 );
 
 create table Stock (
