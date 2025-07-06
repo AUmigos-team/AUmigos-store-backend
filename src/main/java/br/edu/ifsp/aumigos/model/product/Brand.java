@@ -1,5 +1,6 @@
 package br.edu.ifsp.aumigos.model.product;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -21,6 +22,7 @@ public class Brand {
     private String name;
 
     @OneToMany(mappedBy = "brand")
+    @JsonBackReference
     private List<Product> products;
 }
 
