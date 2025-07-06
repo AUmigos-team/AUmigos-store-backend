@@ -35,9 +35,10 @@ create table brand (
 
 create table product (
     id int primary key auto_increment,
-    name varchar(100) not null,
+    name varchar(255) not null,
     description text,
     price decimal(10,2) not null,
+    image_url varchar(255),
     subcategory_id int,
     brand_id int,
     foreign key (subcategory_id) references subcategory(id),
