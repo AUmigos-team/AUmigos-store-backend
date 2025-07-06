@@ -7,11 +7,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.IdClass;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
 @Entity
 @IdClass(OrderItemPK.class)
+@Data
 public class OrderItem {
     @Id
     @ManyToOne

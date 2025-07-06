@@ -1,11 +1,13 @@
 package br.edu.ifsp.aumigos.model.order;
 
 import jakarta.persistence.Embeddable;
+import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 @Embeddable
+@Data
 public class OrderItemPK implements Serializable {
     private Integer product;
     private Integer order;
