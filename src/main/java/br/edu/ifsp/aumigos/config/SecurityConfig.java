@@ -1,5 +1,6 @@
-package br.edu.ifsp.aumigos.security;
+package br.edu.ifsp.aumigos.config;
 
+import br.edu.ifsp.aumigos.security.JwtAuthFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
