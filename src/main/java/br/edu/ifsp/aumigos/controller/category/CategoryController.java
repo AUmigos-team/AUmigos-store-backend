@@ -1,4 +1,4 @@
-package br.edu.ifsp.aumigos.controller;
+package br.edu.ifsp.aumigos.controller.category;
 
 import br.edu.ifsp.aumigos.model.category.Category;
 import br.edu.ifsp.aumigos.service.CategoryService;

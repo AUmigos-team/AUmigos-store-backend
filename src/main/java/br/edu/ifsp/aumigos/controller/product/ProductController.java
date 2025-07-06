@@ -1,4 +1,4 @@
-package br.edu.ifsp.aumigos.controller;
+package br.edu.ifsp.aumigos.controller.product;
 
 import br.edu.ifsp.aumigos.model.product.Product;
 import br.edu.ifsp.aumigos.service.ProductService;
