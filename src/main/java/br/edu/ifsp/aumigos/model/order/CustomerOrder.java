@@ -23,18 +23,18 @@ public class CustomerOrder {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "clientId")
+    @JoinColumn(name = "client_id")
     private Client client;
 
     @Column(nullable = false)
     private LocalDate date;
 
     @ManyToOne
-    @JoinColumn(name = "statusId")
+    @JoinColumn(name = "status_id")
     private Status status;
 
     @ManyToOne
-    @JoinColumn(name = "paymentMethodId")
+    @JoinColumn(name = "payment_method_id")
     private PaymentMethod paymentMethod;
 
     @Column(nullable = false)

@@ -20,7 +20,7 @@ public class Cart {
     private Integer id;
 
     @OneToOne
-    @JoinColumn(name = "clientId")
+    @JoinColumn(name = "client_id")
     private Client client;
 
     @OneToMany(mappedBy = "cart")

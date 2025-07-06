@@ -19,11 +19,11 @@ public class Review {
     private Integer id;
 
     @ManyToOne
-    @JoinColumn(name = "productId")
+    @JoinColumn(name = "product_id")
     private Product product;
 
     @ManyToOne
-    @JoinColumn(name = "clientId")
+    @JoinColumn(name = "client_id")
     private Client client;
 
     private Integer grade;

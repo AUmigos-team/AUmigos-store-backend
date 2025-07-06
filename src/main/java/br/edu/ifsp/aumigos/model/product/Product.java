@@ -30,11 +30,11 @@ public class Product {
     private BigDecimal price;
 
     @ManyToOne
-    @JoinColumn(name = "subcategoryId")
+    @JoinColumn(name = "subcategory_id")
     private Subcategory subcategory;
 
     @ManyToOne
-    @JoinColumn(name = "brandId")
+    @JoinColumn(name = "brand_id")
     private Brand brand;
 
     @OneToMany(mappedBy = "product")
