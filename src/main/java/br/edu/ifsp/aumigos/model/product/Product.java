@@ -28,6 +28,9 @@ public class Product {
 
     private String description;
 
+    @Column(name = "image_url", nullable = false)
+    private String imageUrl;
+
     @Column(nullable = false)
     private BigDecimal price;
 
