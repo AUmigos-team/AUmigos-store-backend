@@ -27,4 +27,5 @@ INSERT INTO Category (name) VALUES
     ('Peixe'),
     ('Pássaro'),
     ('Outros Pets'),
-    ('Casa e Jardim'),
+    ('Casa e Jardim');
+
