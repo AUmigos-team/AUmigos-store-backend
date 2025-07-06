@@ -1,6 +1,7 @@
 package br.edu.ifsp.aumigos.model.category;
 
 import br.edu.ifsp.aumigos.model.product.Product;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,7 +25,8 @@ public class Subcategory {
     private String name;
 
     @ManyToOne
-    @JoinColumn(name = "categoryId")
+    @JoinColumn(name = "category_id")
+    @JsonBackReference
     private Category category;
 
     @OneToMany(mappedBy = "subcategory")
