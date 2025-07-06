@@ -12,8 +12,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     select p from Product p
     where (:category is null or p.subcategory.category.name = :category)
       and (:subcategory is null or p.subcategory.name = :subcategory)
-      and (:search is null or lower(p.name) LIKE lower(concat('%', :search, '%'))
-                      OR lower(p.description) LIKE lower(concat('%', :search, '%')))
+      and (:search is null or lower(p.name) like lower(concat('%', :search, '%'))
+                      or lower(p.description) like lower(concat('%', :search, '%')))
     """)
     Page<Product> searchProducts(String category, String subcategory, String search, Pageable pageable);
 
