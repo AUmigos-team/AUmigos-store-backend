@@ -24,8 +24,9 @@ public class ProductController {
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size,
             @RequestParam(required = false) String category,
+            @RequestParam(required = false ) String subcategory,
             @RequestParam(required = false) String search
     ) {
-        return productService.getPaginatedProducts(page, size);
+        return productService.getPaginatedProducts(page, size, category, subcategory, search);
     }
 }
