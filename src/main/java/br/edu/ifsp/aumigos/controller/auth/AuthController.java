@@ -7,6 +7,7 @@ import br.edu.ifsp.aumigos.model.client.auth.RegisterRequest;
 import br.edu.ifsp.aumigos.util.Base64Util;
 import br.edu.ifsp.aumigos.util.JwtUtil;
 import br.edu.ifsp.aumigos.service.ClientService;
+import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,6 +43,8 @@ public class AuthController {
     private ClientService clientService;
 
     @PostMapping("/login")
+    @Operation(summary = "Client login",
+            description = "Authenticates a client using email and password, returning a JWT token and client details if successful.")
     public ResponseEntity<?> login(@RequestBody @Valid AuthRequest request) {
         try {
             authManager.authenticate(
@@ -79,6 +82,8 @@ public class AuthController {
     }
 
     @PostMapping("/register")
+    @Operation(summary = "Client registration",
+            description = "Registers a new client with name, email, phone, address, profile picture and password, returning a JWT token and client details if successful.")
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) throws IOException {
         if (clientService.existsByEmail(request.getEmail())) {
             return ResponseEntity
@@ -107,7 +112,4 @@ public class AuthController {
                 )
         ));
     }
-
-
-
 }
