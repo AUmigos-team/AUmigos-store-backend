@@ -25,6 +25,7 @@ create table subcategory (
     id int primary key auto_increment,
     name varchar(100) not null,
     category_id int,
+    image varchar(255),
     foreign key (category_id) references category(id)
 );
 
@@ -56,6 +57,8 @@ create table client (
     id int primary key auto_increment,
     name varchar(100) not null,
     email varchar(150) not null,
+    password varchar(255) not null,
+    profile_picture varchar(255),
     phone varchar(20),
     address text
 );
