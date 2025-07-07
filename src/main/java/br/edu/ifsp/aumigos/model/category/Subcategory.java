@@ -25,6 +25,8 @@ public class Subcategory {
     @Column(nullable = false)
     private String name;
 
+    private String image;
+
     @ManyToOne
     @JoinColumn(name = "category_id")
     @JsonBackReference

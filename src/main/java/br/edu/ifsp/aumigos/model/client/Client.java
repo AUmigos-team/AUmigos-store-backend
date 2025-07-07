@@ -29,6 +29,10 @@ public class Client {
 
     private String phone;
     private String address;
+    private String password;
+
+    @Column(name = "profile_picture")
+    private String profilePicture;
 
     @OneToMany(mappedBy = "client")
     private List<CustomerOrder> orders;
