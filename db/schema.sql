@@ -56,7 +56,7 @@ create table stock (
 create table client (
     id int primary key auto_increment,
     name varchar(100) not null,
-    email varchar(150) not null,
+    email varchar(150) not null unique,
     password varchar(255) not null,
     profile_picture varchar(2048),
     phone varchar(20),
