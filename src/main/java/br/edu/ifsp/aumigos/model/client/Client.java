@@ -59,8 +59,4 @@ public class Client implements UserDetails {
     public String getUsername() {
         return email;
     }
-
-    public static Client getAuthenticatedClient() {
-        return (Client) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-    }
 }

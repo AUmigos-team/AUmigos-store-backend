@@ -4,6 +4,7 @@ import br.edu.ifsp.aumigos.model.cart.Cart;
 import br.edu.ifsp.aumigos.model.client.Client;
 import br.edu.ifsp.aumigos.service.cart.CartService;
 import br.edu.ifsp.aumigos.service.product.ProductService;
+import br.edu.ifsp.aumigos.util.JwtUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import lombok.Data;
@@ -34,7 +35,7 @@ public class CartController {
             description = "Returns a list of cart items for the specified client ID. " +
                           "Access is restricted to the client associated with the ID.")
     public Cart getCart() {
-        return cartService.findByClientId(Client.getAuthenticatedClient().getId());
+        return cartService.findByClientId(JwtUtil.getAuthenticatedClient().getId());
     }
 
     @PostMapping("/add")
@@ -43,7 +44,7 @@ public class CartController {
             description = "Adds a specified product to the authenticated client's cart. " +
                           "If the cart does not exist, it will be created.")
     public ResponseEntity<?> add(@RequestBody AddRequestBody addRequest) {
-        Integer clientId = Client.getAuthenticatedClient().getId();
+        Integer clientId = JwtUtil.getAuthenticatedClient().getId();
         try {
             cartService.addProductToCart(addRequest.getProductId(), clientId);
 

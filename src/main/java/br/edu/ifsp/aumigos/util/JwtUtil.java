@@ -1,9 +1,11 @@
 package br.edu.ifsp.aumigos.util;
 
+import br.edu.ifsp.aumigos.model.client.Client;
 import io.jsonwebtoken.JwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.security.Keys;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
 import javax.crypto.SecretKey;
@@ -34,5 +36,9 @@ public class JwtUtil {
         } catch (JwtException e) {
             return false;
         }
+    }
+
+    public static Client getAuthenticatedClient() {
+        return (Client) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
     }
 }
