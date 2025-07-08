@@ -3,6 +3,7 @@ package br.edu.ifsp.aumigos.model.client;
 import br.edu.ifsp.aumigos.model.cart.Cart;
 import br.edu.ifsp.aumigos.model.order.Order;
 import br.edu.ifsp.aumigos.model.product.Review;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -33,6 +34,8 @@ public class Client implements UserDetails {
 
     private String phone;
     private String address;
+
+    @JsonIgnore
     private String password;
 
     @Column(name = "profile_picture")
