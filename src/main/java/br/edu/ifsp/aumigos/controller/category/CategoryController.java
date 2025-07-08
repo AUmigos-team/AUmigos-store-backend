@@ -1,7 +1,7 @@
 package br.edu.ifsp.aumigos.controller.category;
 
 import br.edu.ifsp.aumigos.model.category.Category;
-import br.edu.ifsp.aumigos.service.CategoryService;
+import br.edu.ifsp.aumigos.service.category.CategoryService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
