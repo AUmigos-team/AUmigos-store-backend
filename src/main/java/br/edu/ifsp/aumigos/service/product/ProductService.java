@@ -1,4 +1,4 @@
-package br.edu.ifsp.aumigos.service;
+package br.edu.ifsp.aumigos.service.product;
 
 import br.edu.ifsp.aumigos.model.product.Product;
 import br.edu.ifsp.aumigos.repository.product.ProductRepository;
@@ -24,5 +24,10 @@ public class ProductService {
         });
 
         return products;
+    }
+
+    public Product getProductById(Integer id) {
+        return productRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
     }
 }

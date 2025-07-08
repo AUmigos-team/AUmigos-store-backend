@@ -1,6 +1,6 @@
 package br.edu.ifsp.aumigos.security;
 
-import br.edu.ifsp.aumigos.service.ClientService;
+import br.edu.ifsp.aumigos.service.client.ClientService;
 import br.edu.ifsp.aumigos.util.JwtUtil;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

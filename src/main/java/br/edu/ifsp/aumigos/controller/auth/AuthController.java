@@ -4,7 +4,7 @@ import br.edu.ifsp.aumigos.config.SecurityConfig;
 import br.edu.ifsp.aumigos.model.client.Client;
 import br.edu.ifsp.aumigos.model.client.auth.AuthRequest;
 import br.edu.ifsp.aumigos.model.client.auth.RegisterRequest;
-import br.edu.ifsp.aumigos.service.ClientService;
+import br.edu.ifsp.aumigos.service.client.ClientService;
 import br.edu.ifsp.aumigos.util.Base64Util;
 import br.edu.ifsp.aumigos.util.JwtUtil;
 import io.swagger.v3.oas.annotations.Operation;

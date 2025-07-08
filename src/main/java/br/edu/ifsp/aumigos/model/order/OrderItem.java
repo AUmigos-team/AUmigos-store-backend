@@ -23,7 +23,7 @@ public class OrderItem {
     @Id
     @ManyToOne
     @JoinColumn(name = "order_id")
-    private CustomerOrder order;
+    private Order order;
 
     @Column(nullable = false)
     private Integer quantity;

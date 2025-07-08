@@ -1,7 +1,7 @@
 package br.edu.ifsp.aumigos.controller.product;
 
 import br.edu.ifsp.aumigos.model.product.Product;
-import br.edu.ifsp.aumigos.service.ProductService;
+import br.edu.ifsp.aumigos.service.product.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;

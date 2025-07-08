@@ -1,4 +1,4 @@
-package br.edu.ifsp.aumigos.service;
+package br.edu.ifsp.aumigos.service.product;
 
 import br.edu.ifsp.aumigos.repository.product.ReviewRepository;
 import lombok.RequiredArgsConstructor;

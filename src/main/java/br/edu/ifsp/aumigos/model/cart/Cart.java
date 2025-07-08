@@ -1,6 +1,8 @@
 package br.edu.ifsp.aumigos.model.cart;
 
 import br.edu.ifsp.aumigos.model.client.Client;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,9 +23,11 @@ public class Cart {
 
     @OneToOne
     @JoinColumn(name = "client_id")
+    @JsonIgnore
     private Client client;
 
     @OneToMany(mappedBy = "cart")
+    @JsonManagedReference
     private List<CartItem> items;
 }
 
