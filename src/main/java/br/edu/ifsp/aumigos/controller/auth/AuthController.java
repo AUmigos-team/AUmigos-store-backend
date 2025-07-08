@@ -4,19 +4,17 @@ import br.edu.ifsp.aumigos.config.SecurityConfig;
 import br.edu.ifsp.aumigos.model.client.Client;
 import br.edu.ifsp.aumigos.model.client.auth.AuthRequest;
 import br.edu.ifsp.aumigos.model.client.auth.RegisterRequest;
+import br.edu.ifsp.aumigos.service.ClientService;
 import br.edu.ifsp.aumigos.util.Base64Util;
 import br.edu.ifsp.aumigos.util.JwtUtil;
-import br.edu.ifsp.aumigos.service.ClientService;
 import io.swagger.v3.oas.annotations.Operation;
 import jakarta.validation.Valid;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,21 +24,15 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 import java.util.Map;
 
+@RequiredArgsConstructor
 @RestController
 @RequestMapping("/api/auth")
 public class AuthController {
 
-    @Autowired
-    private AuthenticationManager authManager;
-
-    @Autowired
-    private JwtUtil jwtUtil;
-
-    @Autowired
-    private SecurityConfig securityConfig;
-
-    @Autowired
-    private ClientService clientService;
+    private final AuthenticationManager authManager;
+    private final JwtUtil jwtUtil;
+    private final SecurityConfig securityConfig;
+    private final ClientService clientService;
 
     @PostMapping("/login")
     @Operation(summary = "Client login",
