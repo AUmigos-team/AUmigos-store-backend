@@ -1,6 +1,7 @@
 package br.edu.ifsp.aumigos.model.order;
 
 import br.edu.ifsp.aumigos.model.product.Product;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -23,6 +24,7 @@ public class OrderItem {
     @Id
     @ManyToOne
     @JoinColumn(name = "order_id", nullable = false)
+    @JsonBackReference
     private Order order;
 
     @Column(nullable = false)

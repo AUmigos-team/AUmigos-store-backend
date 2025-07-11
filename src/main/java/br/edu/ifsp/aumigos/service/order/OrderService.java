@@ -15,12 +15,14 @@ import br.edu.ifsp.aumigos.service.client.ClientService;
 import br.edu.ifsp.aumigos.service.product.ProductService;
 import br.edu.ifsp.aumigos.service.product.StockService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 @Service
@@ -73,8 +75,9 @@ public class OrderService {
         cartService.deleteCart(clientId);
     }
 
-    public List<Order> getOrderHistoryByClientId(Integer clientId) {
-        return orderRepository.findByClientId(clientId);
+    public Page<Order> getOrderHistoryByClientId(int clientId, int page, int size) {
+        Pageable pageable = PageRequest.of(page, size);
+        return orderRepository.findByClientId(clientId, pageable);
     }
 
     private PaymentMethod getPaymentMethodById(Integer paymentMethodId) {

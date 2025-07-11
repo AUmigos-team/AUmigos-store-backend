@@ -1,6 +1,8 @@
 package br.edu.ifsp.aumigos.model.order;
 
 import br.edu.ifsp.aumigos.model.client.Client;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -27,6 +29,7 @@ public class Order {
 
     @ManyToOne
     @JoinColumn(name = "client_id", nullable = false)
+    @JsonIgnore
     private Client client;
 
     @Column(nullable = false)
@@ -44,5 +47,6 @@ public class Order {
     private BigDecimal totalValue;
 
     @OneToMany(mappedBy = "order", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<OrderItem> items;
 }
