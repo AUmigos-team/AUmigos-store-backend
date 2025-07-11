@@ -33,7 +33,11 @@ public class ClientService implements UserDetailsService {
     }
 
     public void save(Client client) {
+        Optional<Client> optional = clientRepository.findByEmail(client.getEmail());
+
+        if(optional.isPresent()) {
+            if (!optional.get().getId().equals(client.getId())) throw new RuntimeException("Email already in use");
+        }
         clientRepository.save(client);
     }
-
 }
