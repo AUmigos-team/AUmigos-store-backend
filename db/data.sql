@@ -53,25 +53,37 @@ INSERT INTO brand (name) VALUES
     ('Petz'),
     ('Zee.Dog');
 
-INSERT INTO subcategory (name, category_id) VALUES
-    ('Ração', 1),
-    ('Petiscos', 1),
-    ('Higiene', 1),
-    ('Roupas', 1),
-    ('Brinquedos', 1),
-    ('Acessórios', 1),
-    ('Ração', 2),
-    ('Petiscos', 2),
-    ('Higiene', 2),
-    ('Brinquedos', 2),
-    ('Acessórios', 2),
-    ('Ração', 3),
-    ('Acessórios', 3),
-    ('Ração', 4),
-    ('Acessórios', 4),
-    ('Ração', 5),
-    ('Acessórios', 5),
-    ('Acessórios', 6);
+INSERT INTO subcategory (name, category_id, image) VALUES
+    -- Cachorro
+    ('Ração', 1, 'subcategories/dog/racao-selections.png'),
+    ('Petiscos', 1, 'subcategories/dog/petisco-e-osso.png'),
+    ('Higiene', 1, 'subcategories/dog/higiene.png'),
+    ('Roupas', 1, 'subcategories/dog/roupas-de-verao-e-inverno.png'),
+    ('Brinquedos', 1, 'subcategories/dog/brinquedos-cachorro.png'),
+    ('Acessórios', 1, 'subcategories/dog/acessorios.png'),
+
+    -- Gato
+    ('Ração', 2, 'subcategories/cat/racao.png'),
+    ('Petiscos', 2, 'subcategories/cat/petisco.png'),
+    ('Higiene', 2, 'subcategories/cat/higiene-1.png'), -- renomeie esse arquivo!
+    ('Brinquedos', 2, 'subcategories/cat/brinquedos.png'),
+    ('Acessórios', 2, 'subcategories/cat/coleiras-guia-e-peitoral.png'),
+
+    -- Categoria 3: Pássaro
+    ('Ração', 3, 'https://cdn.petz.com.br/fotos/1672935051880.jpg'),
+    ('Acessórios', 3, 'https://cdn.petz.com.br/fotos/1672935079544.jpg'),
+
+    -- Categoria 4: Peixe
+    ('Ração', 4, 'https://cdn.petz.com.br/fotos/1672935152646.jpg'),
+    ('Acessórios', 4, 'https://cdn.petz.com.br/fotos/1672935173012.jpg'),
+
+    -- Categoria 5: Roedor
+    ('Ração', 5, 'https://cdn.petz.com.br/fotos/1672935128297.jpg'),
+    ('Acessórios', 5, 'https://cdn.petz.com.br/fotos/1672935099415.jpg'),
+
+    -- Categoria 6: Outros
+    ('Acessórios', 6, 'https://cdn.petz.com.br/fotos/1672935204711.jpg');
+
 
 insert into product (name, description, price, subcategory_id, brand_id, image_url) values
     ('Peitoral Ferplast Agila Fluo Amarelo e Preto Para Cães', 'Tamanho 4', 50.99, 6, 1, 'https://images.petz.com.br/fotos/10031110004144-1_mini.jpg'),
