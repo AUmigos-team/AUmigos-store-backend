@@ -37,15 +37,15 @@ public class AuthController {
     @PostMapping("/login")
     @Operation(summary = "Client login",
             description = "Authenticates a client using email and password, returning a JWT token and client details if successful.")
-    public ResponseEntity<?> login(@RequestBody AuthRequest request) {
+    public ResponseEntity<?> login(@RequestBody AuthRequest req) {
         try {
             authManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
-                            request.getEmail(), request.getPassword()
+                            req.getEmail(), req.getPassword()
                     )
             );
 
-            Client client = clientService.getClientByEmail(request.getEmail());
+            Client client = clientService.getClientByEmail(req.getEmail());
 
             String token = jwtUtil.generateToken(client.getEmail());
 
@@ -75,32 +75,32 @@ public class AuthController {
     @PostMapping("/register")
     @Operation(summary = "Client registration",
             description = "Registers a new client with name, email, phone, address, profile picture and password, returning a JWT token and client details if successful.")
-    public ResponseEntity<?> register(@RequestBody RegisterRequest request) throws IOException {
-        if (clientService.getClientByEmail(request.getEmail()) != null) {
+    public ResponseEntity<?> register(@RequestBody RegisterRequest req) throws IOException {
+        try {
+            Client client = new Client();
+            client.setName(req.getName());
+            client.setEmail(req.getEmail());
+            client.setPhone(req.getPhone());
+            client.setAddress(req.getAddress());
+            if(req.getProfilePicture() != null) client.setProfilePicture(Base64Util.encodeToBase64(req.getProfilePicture().getBytes()));
+            client.setPassword(securityConfig.passwordEncoder().encode(req.getPassword()));
+
+            clientService.save(client);
+
+            String token = jwtUtil.generateToken(client.getEmail());
+
+            return ResponseEntity.ok(Map.of(
+                    "token", token,
+                    "client", Map.of(
+                            "id", client.getId(),
+                            "name", client.getName(),
+                            "email", client.getEmail()
+                    )
+            ));
+        } catch (RuntimeException e) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
-                    .body(Map.of("message", "Email already in use"));
+                    .body(Map.of("message", e.getMessage()));
         }
-
-        Client client = new Client();
-        client.setName(request.getName());
-        client.setEmail(request.getEmail());
-        client.setPhone(request.getPhone());
-        client.setAddress(request.getAddress());
-        if(request.getProfilePicture() != null) client.setProfilePicture(Base64Util.encodeToBase64(request.getProfilePicture().getBytes()));
-        client.setPassword(securityConfig.passwordEncoder().encode(request.getPassword()));
-
-        clientService.save(client);
-
-        String token = jwtUtil.generateToken(client.getEmail());
-
-        return ResponseEntity.ok(Map.of(
-                "token", token,
-                "client", Map.of(
-                        "id", client.getId(),
-                        "name", client.getName(),
-                        "email", client.getEmail()
-                )
-        ));
     }
 }

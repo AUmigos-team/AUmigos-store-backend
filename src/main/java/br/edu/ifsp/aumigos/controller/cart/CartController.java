@@ -7,7 +7,6 @@ import br.edu.ifsp.aumigos.service.product.ProductService;
 import br.edu.ifsp.aumigos.util.JwtUtil;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -23,6 +22,7 @@ import java.util.Map;
 
 @RequiredArgsConstructor
 @SecurityRequirement(name = "bearerAuth")
+@PreAuthorize("isAuthenticated()")
 @RestController
 @RequestMapping("/api/cart")
 public class CartController {
@@ -31,7 +31,6 @@ public class CartController {
     private final ProductService productService;
 
     @GetMapping
-    @PreAuthorize("isAuthenticated()")
     @Operation(summary = "Get cart items by client ID",
             description = "Returns a list of cart items for the specified client ID. " +
                           "Access is restricted to the client associated with the ID.")
@@ -40,7 +39,6 @@ public class CartController {
     }
 
     @PostMapping("/add")
-    @PreAuthorize("isAuthenticated()")
     @Operation(summary = "Add a product to the cart",
             description = "Adds a specified product to the authenticated client's cart. " +
                           "If the cart does not exist, it will be created.")
@@ -59,7 +57,6 @@ public class CartController {
     }
 
     @DeleteMapping("/remove")
-    @PreAuthorize("isAuthenticated()")
     @Operation(summary = "Remove a product from the cart",
             description = "Removes a specified product from the authenticated client's cart.")
     public ResponseEntity<?> remove(@RequestBody CartRequestBody req) {
