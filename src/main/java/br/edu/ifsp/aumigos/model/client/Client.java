@@ -16,6 +16,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -32,8 +33,17 @@ public class Client implements UserDetails {
     @Column(nullable = false, length = 150)
     private String email;
 
+    @Column(nullable = false)
     private String phone;
-    private String address;
+
+    @Column(nullable = false)
+    private String cpf;
+
+    @Column(nullable = false)
+    private String gender;
+
+    @Column(nullable = false, name = "birth_date")
+    private LocalDate birthDate;
 
     @JsonIgnore
     private String password;

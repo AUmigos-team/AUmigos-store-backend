@@ -81,7 +81,10 @@ public class AuthController {
             client.setName(req.getName());
             client.setEmail(req.getEmail());
             client.setPhone(req.getPhone());
-            client.setAddress(req.getAddress());
+            client.setCpf(req.getCpf());
+            client.setGender(req.getGender());
+            client.setBirthDate(req.getBirthDate());
+
             if(req.getProfilePicture() != null) client.setProfilePicture(Base64Util.encodeToBase64(req.getProfilePicture().getBytes()));
             client.setPassword(securityConfig.passwordEncoder().encode(req.getPassword()));
 

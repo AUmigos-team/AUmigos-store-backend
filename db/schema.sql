@@ -59,8 +59,10 @@ create table client (
     email varchar(150) not null unique,
     password varchar(255) not null,
     profile_picture varchar(2048),
-    phone varchar(20),
-    address text
+    cpf varchar(11) not null unique,
+    gender varchar(20) not null,
+    phone varchar(20) not null,
+    birth_date date not null
 );
 
 create table payment_method (
@@ -82,6 +84,7 @@ create table customer_order (
     status_id int,
     payment_method_id int,
     total_value decimal(10,2) not null,
+    address text,
     foreign key (client_id) references client(id),
     foreign key (status_id) references status(id),
     foreign key (payment_method_id) references payment_method(id)

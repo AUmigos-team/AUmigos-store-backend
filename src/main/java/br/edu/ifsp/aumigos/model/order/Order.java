@@ -35,6 +35,8 @@ public class Order {
     @Column(nullable = false)
     private LocalDate date;
 
+    private String address;
+
     @ManyToOne
     @JoinColumn(name = "status_id", nullable = false)
     private Status status;

@@ -50,7 +50,9 @@ public class ClientController {
             client.setName(req.getName() != null ? req.getName() : authenticatedClient.getName());
             client.setEmail(req.getEmail() != null ? req.getEmail() : authenticatedClient.getEmail());
             client.setPhone(req.getPhone() != null ? req.getPhone() : authenticatedClient.getPhone());
-            client.setAddress(req.getAddress() != null ? req.getAddress() : authenticatedClient.getAddress());
+            client.setCpf(req.getCpf() != null ? req.getCpf() : authenticatedClient.getCpf());
+            client.setGender(req.getGender() != null ? req.getGender() : authenticatedClient.getGender());
+            client.setBirthDate(req.getBirthDate() != null ? req.getBirthDate() : authenticatedClient.getBirthDate());
             client.setPassword(req.getPassword() != null ? securityConfig.passwordEncoder().encode(req.getPassword()) : authenticatedClient.getPassword());
             client.setProfilePicture(req.getProfilePicture() != null ? Base64Util.encodeToBase64(req.getProfilePicture().getBytes()) : authenticatedClient.getProfilePicture());
             clientService.save(client);
