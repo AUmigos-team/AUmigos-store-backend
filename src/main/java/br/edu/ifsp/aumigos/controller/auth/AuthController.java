@@ -37,7 +37,7 @@ public class AuthController {
     @PostMapping("/login")
     @Operation(summary = "Client login",
             description = "Authenticates a client using email and password, returning a JWT token and client details if successful.")
-    public ResponseEntity<?> login(@RequestBody @Valid AuthRequest request) {
+    public ResponseEntity<?> login(@RequestBody AuthRequest request) {
         try {
             authManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
@@ -45,8 +45,7 @@ public class AuthController {
                     )
             );
 
-            Client client = clientService.findByEmail(request.getEmail())
-                    .orElseThrow(() -> new UsernameNotFoundException("Client not found"));
+            Client client = clientService.getClientByEmail(request.getEmail());
 
             String token = jwtUtil.generateToken(client.getEmail());
 
@@ -77,7 +76,7 @@ public class AuthController {
     @Operation(summary = "Client registration",
             description = "Registers a new client with name, email, phone, address, profile picture and password, returning a JWT token and client details if successful.")
     public ResponseEntity<?> register(@RequestBody RegisterRequest request) throws IOException {
-        if (clientService.existsByEmail(request.getEmail())) {
+        if (clientService.getClientByEmail(request.getEmail()) != null) {
             return ResponseEntity
                     .status(HttpStatus.BAD_REQUEST)
                     .body(Map.of("message", "Email already in use"));
