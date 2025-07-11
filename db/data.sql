@@ -187,10 +187,11 @@ insert into stock (quantity, product_id) values
     (100, 54),
     (54, 55);
 
-INSERT INTO client (name, email, phone, address) VALUES
-    ('João Silva', 'joao@example.com', '11999990001', 'Rua das Flores, 123'),
-    ('Maria Oliveira', 'maria@example.com', '11999990002', 'Av. Brasil, 456'),
-    ('Carlos Souza', 'carlos@example.com', '11999990003', 'Rua A, 789');
+# CLIENTES DEVEM SER GERADOS MANUALMENTE VIA API
+# INSERT INTO client (name, email, phone, address) VALUES
+#     ('João Silva', 'joao@example.com', '11999990001', 'Rua das Flores, 123'),
+#     ('Maria Oliveira', 'maria@example.com', '11999990002', 'Av. Brasil, 456'),
+#     ('Carlos Souza', 'carlos@example.com', '11999990003', 'Rua A, 789');
 
 INSERT INTO review (product_id, client_id, grade, comment, date) VALUES
     (1, 1, 5, 'Meu cachorro adorou essa ração!', '2024-06-01'),
