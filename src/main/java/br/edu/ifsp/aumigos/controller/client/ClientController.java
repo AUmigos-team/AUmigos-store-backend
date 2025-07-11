@@ -1,4 +1,4 @@
-package br.edu.ifsp.aumigos.client;
+package br.edu.ifsp.aumigos.controller.client;
 
 import br.edu.ifsp.aumigos.config.SecurityConfig;
 import br.edu.ifsp.aumigos.model.client.Client;
