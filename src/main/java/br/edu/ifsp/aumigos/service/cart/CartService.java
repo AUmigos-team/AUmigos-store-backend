@@ -8,10 +8,12 @@ import br.edu.ifsp.aumigos.repository.cart.CartRepository;
 import br.edu.ifsp.aumigos.service.client.ClientService;
 import br.edu.ifsp.aumigos.service.product.ProductService;
 import br.edu.ifsp.aumigos.service.product.StockService;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
@@ -29,7 +31,7 @@ public class CartService {
 
     public void addProductToCart(Integer productId, Integer clientId) {
 
-        if(!stockService.isProductInStock(productId)) throw new RuntimeException("Product is out of stock");
+        if(!stockService.isProductInStock(productId, 1)) throw new RuntimeException("Product is out of stock");
 
         Cart cart = cartRepository.findByClientId(clientId);
 
@@ -71,6 +73,15 @@ public class CartService {
             cart.getItems().remove(item);
             cartItemRepository.delete(item);
         }
+    }
+
+    @Transactional
+    public void deleteCart(Integer clientId) {
+        Cart cart = cartRepository.findByClientId(clientId);
+        if (cart == null) throw new RuntimeException("Cart not found");
+
+        cartItemRepository.deleteByCartId(cart.getId());
+        cartRepository.deleteByClientId(clientId);
     }
 
     private CartItem getCartItemByProductId(Cart cart, Integer productId) {
