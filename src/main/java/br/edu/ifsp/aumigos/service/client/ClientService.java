@@ -22,13 +22,14 @@ public class ClientService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException("Client not found"));
     }
 
-
-    public boolean existsByEmail(String email) {
-        return clientRepository.findByEmail(email).isPresent();
+    public Client getClientByEmail(String email) {
+        return clientRepository.findByEmail(email)
+                .orElse(null);
     }
 
-    public Optional<Client> findByEmail(String email) {
-        return clientRepository.findByEmail(email);
+    public Client getClientById(Integer id) {
+        return clientRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Client not found"));
     }
 
     public void save(Client client) {
