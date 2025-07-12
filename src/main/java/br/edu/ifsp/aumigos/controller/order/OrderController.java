@@ -1,5 +1,6 @@
 package br.edu.ifsp.aumigos.controller.order;
 
+import br.edu.ifsp.aumigos.model.order.Address;
 import br.edu.ifsp.aumigos.model.order.Order;
 import br.edu.ifsp.aumigos.model.order.req.OrderRequestBody;
 import br.edu.ifsp.aumigos.service.order.OrderService;
@@ -36,7 +37,8 @@ public class OrderController {
     public ResponseEntity<?> processOrderItems(@RequestBody OrderRequestBody req) {
         Integer clientId = JwtUtil.getAuthenticatedClient().getId();
         try {
-            orderService.processOrderItems(req.getProducts(), clientId, req.getPaymentMethodId());
+            Address address = setAddress(req.getZipCode(), req.getStreet(), req.getNumber(), req.getComplement(), req.getNeighborhood(), req.getCity(), req.getState());
+            orderService.processOrderItems(req.getProducts(), clientId, req.getPaymentMethodId(), address);
 
             return ResponseEntity.ok().body(Map.of(
                     "message", "Order processed successfully",
@@ -45,6 +47,18 @@ public class OrderController {
         } catch (RuntimeException e) {
             return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
         }
+    }
+
+    private Address setAddress(String zipCode, String street, String number, String complement, String neighborhood, String city, String state) {
+        Address address = new Address();
+        address.setZipCode(zipCode);
+        address.setStreet(street);
+        address.setNumber(number);
+        address.setComplement(complement);
+        address.setNeighborhood(neighborhood);
+        address.setCity(city);
+        address.setState(state);
+        return address;
     }
 
     @GetMapping

@@ -14,15 +14,17 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.List;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
 @Table(name = "customer_order")
-public class Order {
+public class Order extends Address{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -35,7 +37,26 @@ public class Order {
     @Column(nullable = false)
     private LocalDate date;
 
-    private String address;
+    @Column(nullable = false, name = "zip_code")
+    private String zipCode;
+
+    @Column(nullable = false)
+    private String street;
+
+    @Column(nullable = false)
+    private String number;
+
+    @Column(nullable = true)
+    private String complement;
+
+    @Column(nullable = false)
+    private String neighborhood;
+
+    @Column(nullable = false)
+    private String city;
+
+    @Column(nullable = false)
+    private String state;
 
     @ManyToOne
     @JoinColumn(name = "status_id", nullable = false)

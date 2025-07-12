@@ -1,6 +1,7 @@
 package br.edu.ifsp.aumigos.service.order;
 
 import br.edu.ifsp.aumigos.model.cart.Cart;
+import br.edu.ifsp.aumigos.model.order.Address;
 import br.edu.ifsp.aumigos.model.order.Order;
 import br.edu.ifsp.aumigos.model.order.OrderItem;
 import br.edu.ifsp.aumigos.model.order.PaymentMethod;
@@ -38,7 +39,7 @@ public class OrderService {
     private final ProductService productService;
     private final CartService cartService;
 
-    public void processOrderItems(Map<Integer, Integer> products, Integer clientId, Integer paymentMethodId) {
+    public void processOrderItems(Map<Integer, Integer> products, Integer clientId, Integer paymentMethodId, Address address) {
 
         BigDecimal totalValue = BigDecimal.ZERO;
         Cart cart = cartService.findByClientId(clientId);
@@ -51,6 +52,13 @@ public class OrderService {
         order.setStatus(getStatusById(2));
         order.setPaymentMethod(getPaymentMethodById(paymentMethodId));
         order.setItems(new ArrayList<>());
+        order.setZipCode(address.getZipCode());
+        order.setStreet(address.getStreet());
+        order.setNumber(address.getNumber());
+        order.setComplement(address.getComplement());
+        order.setNeighborhood(address.getNeighborhood());
+        order.setCity(address.getCity());
+        order.setState(address.getState());
 
         for (Map.Entry<Integer, Integer> entry : products.entrySet()) {
             Product product = productService.getProductById(entry.getKey());
