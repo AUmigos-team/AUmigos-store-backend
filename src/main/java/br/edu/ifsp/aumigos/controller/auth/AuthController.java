@@ -95,7 +95,7 @@ public class AuthController {
             client.setGender(gender);
             client.setBirthDate(LocalDate.parse(birthDate));
 
-            if (profilePicture != null && !profilePicture.isEmpty()) client.setProfilePicture(Base64Util.encodeToBase64(profilePicture.getBytes()));
+            if (profilePicture != null) client.setProfilePicture(Base64Util.encodeToBase64(profilePicture.getBytes()));
 
             client.setPassword(securityConfig.passwordEncoder().encode(password));
             clientService.save(client);
