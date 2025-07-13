@@ -12,6 +12,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Collections;
 
@@ -39,6 +40,7 @@ public class CartService {
             cart = new Cart();
             cart.setClient(clientService.getClientById(clientId));
             cart.setItems(new ArrayList<>());
+            cart.setTotalValue(BigDecimal.valueOf(0));
             cartRepository.save(cart);
         }
 
@@ -54,6 +56,10 @@ public class CartService {
             newItem.setQuantity(1);
             cartItemRepository.save(newItem);
         }
+
+        BigDecimal productPrice = productService.getProductById(productId).getPrice();
+        cart.setTotalValue(cart.getTotalValue().add(productPrice));
+        cartRepository.save(cart);
     }
 
     public void removeProductFromCart(Integer productId, Integer clientId) {
@@ -73,6 +79,10 @@ public class CartService {
             cart.getItems().remove(item);
             cartItemRepository.delete(item);
         }
+
+        BigDecimal productPrice = productService.getProductById(productId).getPrice();
+        cart.setTotalValue(cart.getTotalValue().subtract(productPrice));
+        cartRepository.save(cart);
     }
 
     @Transactional

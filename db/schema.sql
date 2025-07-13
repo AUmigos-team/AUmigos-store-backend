@@ -120,6 +120,7 @@ create table review (
 create table cart (
     id int primary key auto_increment,
     client_id int,
+    total_value decimal(10,2) not null,
     foreign key (client_id) references client(id)
 );
 
