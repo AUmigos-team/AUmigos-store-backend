@@ -70,4 +70,18 @@ public class OrderController {
     ) {
         return orderService.getOrderHistoryByClientId(JwtUtil.getAuthenticatedClient().getId(), page, size);
     }
+
+    @GetMapping("/paymentMethods")
+    @Operation(summary = "Get payment methods",
+            description = "Returns a list of available payment methods.")
+    public ResponseEntity<?> getPaymentMethods() {
+        try {
+            return ResponseEntity.ok().body(Map.of(
+                    "paymentMethods", orderService.getPaymentMethods()
+            ));
+        } catch (RuntimeException e) {
+            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
+        }
+    }
+
 }
