@@ -1,6 +1,5 @@
 package br.edu.ifsp.aumigos.controller.client;
 
-import br.edu.ifsp.aumigos.config.SecurityConfig;
 import br.edu.ifsp.aumigos.model.client.Client;
 import br.edu.ifsp.aumigos.service.client.ClientService;
 import br.edu.ifsp.aumigos.util.Base64Util;
@@ -29,7 +28,6 @@ import java.util.Map;
 public class ClientController {
 
     private final ClientService clientService;
-    private final SecurityConfig securityConfig;
 
     @GetMapping
     @Operation(summary = "Get authenticated client details",
