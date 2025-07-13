@@ -58,7 +58,7 @@ create table client (
     name varchar(100) not null,
     email varchar(150) not null unique,
     password varchar(255) not null,
-    profile_picture varchar(2048),
+    profile_picture longtext,
     cpf varchar(11) not null unique,
     gender varchar(20) not null,
     phone varchar(20) not null,
