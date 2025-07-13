@@ -50,32 +50,18 @@ public class ClientController {
             @RequestParam("cpf") String cpf,
             @RequestParam("gender") String gender,
             @RequestParam("birthDate") String birthDate,
-            @RequestParam(value = "oldPassword", required = false) String oldPassword,
-            @RequestParam(value = "newPassword", required = false) String newPassword,
             @RequestParam(value = "profilePicture", required = false) MultipartFile profilePicture) {
         try {
-            Client authenticatedClient = JwtUtil.getAuthenticatedClient();
-            Client client = new Client();
-            client.setId(authenticatedClient.getId());
-            client.setName(name != null ? name : authenticatedClient.getName());
-            client.setEmail(email != null ? email : authenticatedClient.getEmail());
-            client.setPhone(phone != null ? phone : authenticatedClient.getPhone());
-            client.setCpf(cpf != null ? cpf : authenticatedClient.getCpf());
-            client.setGender(gender != null ? gender : authenticatedClient.getGender());
-            client.setBirthDate(birthDate != null ? LocalDate.parse(birthDate) : authenticatedClient.getBirthDate());
+            Client client = JwtUtil.getAuthenticatedClient();
 
-            if(oldPassword != null) {
-                if (!securityConfig.passwordEncoder().matches(oldPassword, authenticatedClient.getPassword())) {
-                    return ResponseEntity.badRequest().body(Map.of("message", "Old password is incorrect"));
-                } else {
-                    if (newPassword == null || newPassword.isEmpty()) return ResponseEntity.badRequest().body(Map.of("message", "New password must be provided"));
-                    else client.setPassword(securityConfig.passwordEncoder().encode(newPassword));
-                }
-            } else {
-                client.setPassword(authenticatedClient.getPassword());
-            }
+            if(name != null) client.setName(name);
+            if(email != null) client.setEmail(email);
+            if(phone != null) client.setPhone(phone);
+            if(cpf != null) client.setCpf(cpf);
+            if(gender != null) client.setGender(gender);
+            if(birthDate != null) client.setBirthDate(LocalDate.parse(birthDate));
+            if(profilePicture != null) client.setProfilePicture(Base64Util.encodeToBase64(profilePicture.getBytes()));
 
-            client.setProfilePicture(profilePicture != null ? Base64Util.encodeToBase64(profilePicture.getBytes()) : authenticatedClient.getProfilePicture());
             clientService.save(client);
             Map<String, Object> response = Map.of(
                     "message", "Client updated successfully",
