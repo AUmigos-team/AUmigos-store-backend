@@ -84,7 +84,7 @@ create table customer_order (
     status_id int,
     payment_method_id int,
     total_value decimal(10,2) not null,
-    zipCode varchar(10) not null,
+    zip_code varchar(10) not null,
     street varchar(255) not null,
     number varchar(20) not null,
     complement varchar(255),
