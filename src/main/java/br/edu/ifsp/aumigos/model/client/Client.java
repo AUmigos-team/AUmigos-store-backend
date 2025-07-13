@@ -52,9 +52,11 @@ public class Client implements UserDetails {
     private String profilePicture;
 
     @OneToMany(mappedBy = "client")
+    @JsonIgnore
     private List<Order> orders;
 
     @OneToMany(mappedBy = "client")
+    @JsonIgnore
     private List<Review> reviews;
 
     @OneToOne(mappedBy = "client")
