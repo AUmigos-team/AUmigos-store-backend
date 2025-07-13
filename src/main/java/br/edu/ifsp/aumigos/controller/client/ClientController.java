@@ -12,7 +12,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -51,7 +50,8 @@ public class ClientController {
             @RequestParam("cpf") String cpf,
             @RequestParam("gender") String gender,
             @RequestParam("birthDate") String birthDate,
-            @RequestParam("password") String password,
+            @RequestParam(value = "oldPassword", required = false) String oldPassword,
+            @RequestParam(value = "newPassword", required = false) String newPassword,
             @RequestParam(value = "profilePicture", required = false) MultipartFile profilePicture) {
         try {
             Client authenticatedClient = JwtUtil.getAuthenticatedClient();
@@ -63,8 +63,19 @@ public class ClientController {
             client.setCpf(cpf != null ? cpf : authenticatedClient.getCpf());
             client.setGender(gender != null ? gender : authenticatedClient.getGender());
             client.setBirthDate(birthDate != null ? LocalDate.parse(birthDate) : authenticatedClient.getBirthDate());
-            client.setPassword(password != null ? securityConfig.passwordEncoder().encode(password) : authenticatedClient.getPassword());
-            client.setProfilePicture(profilePicture != null && profilePicture.isEmpty() ? Base64Util.encodeToBase64(profilePicture.getBytes()) : authenticatedClient.getProfilePicture());
+
+            if(oldPassword != null) {
+                if (!securityConfig.passwordEncoder().matches(oldPassword, authenticatedClient.getPassword())) {
+                    return ResponseEntity.badRequest().body(Map.of("message", "Old password is incorrect"));
+                } else {
+                    if (newPassword == null || newPassword.isEmpty()) return ResponseEntity.badRequest().body(Map.of("message", "New password must be provided"));
+                    else client.setPassword(securityConfig.passwordEncoder().encode(newPassword));
+                }
+            } else {
+                client.setPassword(authenticatedClient.getPassword());
+            }
+
+            client.setProfilePicture(profilePicture != null ? Base64Util.encodeToBase64(profilePicture.getBytes()) : authenticatedClient.getProfilePicture());
             clientService.save(client);
             return ResponseEntity.ok().body(Map.of("message", "Client updated successfully"));
         } catch (RuntimeException | IOException e) {
