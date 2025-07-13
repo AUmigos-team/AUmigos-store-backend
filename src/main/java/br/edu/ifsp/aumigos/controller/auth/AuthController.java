@@ -56,7 +56,7 @@ public class AuthController {
                             "id", client.getId(),
                             "name", client.getName(),
                             "email", client.getEmail(),
-                            "profilePicture", client.getProfilePicture()
+                            "profilePicture", client.getProfilePicture() != null ? client.getProfilePicture() : ""
                     )
             );
 
