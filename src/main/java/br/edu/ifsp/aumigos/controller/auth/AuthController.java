@@ -55,7 +55,8 @@ public class AuthController {
                     "client", Map.of(
                             "id", client.getId(),
                             "name", client.getName(),
-                            "email", client.getEmail()
+                            "email", client.getEmail(),
+                            "profilePicture", client.getProfilePicture()
                     )
             );
 
