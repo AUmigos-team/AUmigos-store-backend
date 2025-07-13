@@ -77,7 +77,14 @@ public class ClientController {
 
             client.setProfilePicture(profilePicture != null ? Base64Util.encodeToBase64(profilePicture.getBytes()) : authenticatedClient.getProfilePicture());
             clientService.save(client);
-            return ResponseEntity.ok().body(Map.of("message", "Client updated successfully"));
+            Map<String, Object> response = Map.of(
+                    "message", "Client updated successfully",
+                    "client", Map.of(
+                            "name", client.getName(),
+                            "profilePicture", client.getProfilePicture()
+                    )
+            );
+            return ResponseEntity.ok(response);
         } catch (RuntimeException | IOException e) {
             return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
         }
