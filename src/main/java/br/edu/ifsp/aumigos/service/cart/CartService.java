@@ -2,7 +2,6 @@ package br.edu.ifsp.aumigos.service.cart;
 
 import br.edu.ifsp.aumigos.model.cart.Cart;
 import br.edu.ifsp.aumigos.model.cart.CartItem;
-import br.edu.ifsp.aumigos.model.client.Client;
 import br.edu.ifsp.aumigos.repository.cart.CartItemRepository;
 import br.edu.ifsp.aumigos.repository.cart.CartRepository;
 import br.edu.ifsp.aumigos.service.client.ClientService;
@@ -14,7 +13,6 @@ import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Collections;
 
 @Service
 @RequiredArgsConstructor
@@ -27,7 +25,22 @@ public class CartService {
     private final StockService stockService;
 
     public Cart findByClientId(Integer clientId) {
-        return cartRepository.findByClientId(clientId);
+        Cart cart = cartRepository.findByClientId(clientId);
+
+        if (cart != null) {
+            BigDecimal total = cart.getItems().stream()
+                    .map(item -> item.getProduct().getPrice().multiply(BigDecimal.valueOf(item.getQuantity())))
+                    .reduce(BigDecimal.ZERO, BigDecimal::add);
+            cart.setTotalValue(total);
+            return cart;
+        }
+
+        cart = new Cart();
+        cart.setClient(clientService.getClientById(clientId));
+        cart.setItems(new ArrayList<>());
+        cart.setTotalValue(BigDecimal.ZERO);
+        cartRepository.save(cart);
+        return cart;
     }
 
     public void addProductToCart(Integer productId, Integer clientId) {

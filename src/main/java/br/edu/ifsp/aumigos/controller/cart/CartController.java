@@ -34,8 +34,9 @@ public class CartController {
     @Operation(summary = "Get authenticated client's cart",
             description = "Returns the cart of the authenticated client. " +
                           "If the cart does not exist, it will return an empty cart.")
-    public Cart getCart() {
-        return cartService.findByClientId(JwtUtil.getAuthenticatedClient().getId());
+    public ResponseEntity<?> getCart() {
+        Cart cart = cartService.findByClientId(JwtUtil.getAuthenticatedClient().getId());
+        return ResponseEntity.ok().body(Map.of("cart", cart));
     }
 
     @PostMapping("/add")
