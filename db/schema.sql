@@ -31,7 +31,8 @@ create table subcategory (
 
 create table brand (
     id int primary key auto_increment,
-    name varchar(100) not null
+    name varchar(100) not null,
+    image_url varchar(255)
 );
 
 create table product (

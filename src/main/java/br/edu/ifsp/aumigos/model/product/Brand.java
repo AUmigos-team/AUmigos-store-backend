@@ -21,6 +21,9 @@ public class Brand {
     @Column(nullable = false)
     private String name;
 
+    @Column(nullable = false, name = "image_url")
+    private String imageUrl;
+
     @OneToMany(mappedBy = "brand")
     @JsonBackReference
     private List<Product> products;

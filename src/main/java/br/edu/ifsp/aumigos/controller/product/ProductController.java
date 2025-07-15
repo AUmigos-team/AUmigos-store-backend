@@ -5,6 +5,7 @@ import br.edu.ifsp.aumigos.service.product.ProductService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,5 +29,12 @@ public class ProductController {
             @RequestParam(required = false) String search
     ) {
         return productService.getPaginatedProducts(page, size, category, subcategory, search);
+    }
+
+    @GetMapping("/brands")
+    @Operation(summary = "Get list of brands",
+            description = "Returns a list of all available brands.")
+    public ResponseEntity<?> getBrands() {
+        return ResponseEntity.ok().body(productService.getBrands());
     }
 }
