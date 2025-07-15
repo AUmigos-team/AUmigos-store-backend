@@ -226,3 +226,10 @@ INSERT INTO review (product_id, client_id, grade, comment, date) VALUES
     (35, 1, 4, 'Fácil de usar e limpar.', '2024-06-30'),
     (38, 3, 5, 'Meu gato não larga mais esse brinquedo.', '2024-07-01'),
     (40, 2, 4, 'Bom produto, mas poderia ser mais barato.', '2024-07-02');
+
+
+UPDATE brand SET image_url = 'assets/brands/premierpet.png' WHERE name = 'Premier Pet';
+UPDATE brand SET image_url = 'assets/brands/whiskas.png' WHERE name = 'Whiskas';
+UPDATE brand SET image_url = 'assets/brands/bayer.png' WHERE name = 'Bayer';
+UPDATE brand SET image_url = 'assets/brands/golden.png' WHERE name = 'Golden';
+UPDATE brand SET image_url = 'assets/brands/petz.png' WHERE name = 'Petz';
