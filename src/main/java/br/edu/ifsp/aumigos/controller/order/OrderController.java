@@ -40,7 +40,7 @@ public class OrderController {
             orderService.processOrderItems(req.getProducts(), clientId, req.getPaymentMethodId(), address);
 
             return ResponseEntity.ok().body(Map.of(
-                    "message", "Order processed successfully",
+                    "message", "Pedido processado com sucesso!",
                     "clientId", clientId,
                     "paymentMethodId", req.getPaymentMethodId()));
         } catch (RuntimeException e) {
@@ -75,13 +75,6 @@ public class OrderController {
     @Operation(summary = "Get payment methods",
             description = "Returns a list of available payment methods.")
     public ResponseEntity<?> getPaymentMethods() {
-        try {
-            return ResponseEntity.ok().body(Map.of(
-                    "paymentMethods", orderService.getPaymentMethods()
-            ));
-        } catch (RuntimeException e) {
-            return ResponseEntity.badRequest().body(Map.of("message", e.getMessage()));
-        }
+        return ResponseEntity.ok().body(Map.of("paymentMethods", orderService.getPaymentMethods()));
     }
-
 }

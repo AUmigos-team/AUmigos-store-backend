@@ -45,7 +45,7 @@ public class CartService {
 
     public void addProductToCart(Integer productId, Integer clientId) {
 
-        if(!stockService.isProductInStock(productId, 1)) throw new RuntimeException("Product is out of stock");
+        if(!stockService.isProductInStock(productId, 1)) throw new RuntimeException("O produto está fora de estoque ou não está disponível.");
 
         Cart cart = cartRepository.findByClientId(clientId);
 
@@ -79,11 +79,11 @@ public class CartService {
 
         Cart cart = cartRepository.findByClientId(clientId);
 
-        if (cart == null) throw new RuntimeException("The cart does not exist for the client with ID: " + clientId);
+        if (cart == null) throw new RuntimeException("O carrinho não foi encontrado para o cliente.");
 
         CartItem item = getCartItemByProductId(cart, productId);
 
-        if (item == null) throw new RuntimeException("Product with ID " + productId + " not found in the cart.");
+        if (item == null) throw new RuntimeException("O produto com ID " + productId + " não está no carrinho do cliente.");
 
         if (item.getQuantity() > 1) {
             item.setQuantity(item.getQuantity() - 1);
@@ -101,7 +101,7 @@ public class CartService {
     @Transactional
     public void deleteCart(Integer clientId) {
         Cart cart = cartRepository.findByClientId(clientId);
-        if (cart == null) throw new RuntimeException("Cart not found");
+        if (cart == null) throw new RuntimeException("O carrinho não foi encontrado.");
 
         cartItemRepository.deleteByCartId(cart.getId());
         cartRepository.deleteByClientId(clientId);

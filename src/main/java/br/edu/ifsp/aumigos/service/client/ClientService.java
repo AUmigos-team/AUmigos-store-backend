@@ -36,12 +36,12 @@ public class ClientService implements UserDetailsService {
         Optional<Client> optional = clientRepository.findByEmail(client.getEmail());
 
         if(optional.isPresent()) {
-            if (!optional.get().getId().equals(client.getId())) throw new RuntimeException("Email already in use");
+            if (!optional.get().getId().equals(client.getId())) throw new RuntimeException("Email já está em uso");
         }
 
         optional = clientRepository.findByCpf(client.getCpf());
         if(optional.isPresent()) {
-            if (!optional.get().getId().equals(client.getId())) throw new RuntimeException("CPF already in use");
+            if (!optional.get().getId().equals(client.getId())) throw new RuntimeException("CPF já está em uso");
         }
 
         clientRepository.save(client);

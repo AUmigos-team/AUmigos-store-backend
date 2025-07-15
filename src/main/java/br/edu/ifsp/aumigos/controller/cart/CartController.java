@@ -49,7 +49,7 @@ public class CartController {
             cartService.addProductToCart(req.getProductId(), clientId);
 
             return ResponseEntity.ok().body(Map.of(
-                    "message", "Product added to cart successfully",
+                    "message", "Produto adicionado ao carrinho com sucesso!",
                     "productId", req.getProductId(),
                     "clientId", clientId));
         } catch (RuntimeException e) {
@@ -65,7 +65,7 @@ public class CartController {
         try {
             cartService.removeProductFromCart(req.getProductId(), clientId);
             return ResponseEntity.ok().body(Map.of(
-                    "message", "Product removed from cart successfully",
+                    "message", "Produto removido do carrinho com sucesso!",
                     "productId", req.getProductId(),
                     "clientId", clientId));
         } catch (RuntimeException e) {

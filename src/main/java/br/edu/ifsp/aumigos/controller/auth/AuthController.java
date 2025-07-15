@@ -64,13 +64,13 @@ public class AuthController {
 
         } catch (BadCredentialsException e) {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
-                    .body(Map.of("message", "Email or password is incorrect"));
+                    .body(Map.of("message", "Email ou senha inválidos"));
         } catch (UsernameNotFoundException e) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(Map.of("message", e.getMessage()));
+                    .body(Map.of("message", "Usuário não encontrado"));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body(Map.of("message", "Unexpected error occurred"));
+                    .body(Map.of("message", "Um erro inexpectado ocorreu: " + e.getMessage()));
         }
     }
 

@@ -24,6 +24,6 @@ public class NewsletterController {
             description = "Allows a user to subscribe to the newsletter with their email and selected pet options.")
     public ResponseEntity<?> subscribe(@RequestBody NewsletterRequestBody req) {
         newsletterService.subscribe(req.getEmail(), req.getPetOptions());
-        return ResponseEntity.ok().body(Map.of("message", "Subscription successful"));
+        return ResponseEntity.ok().body(Map.of("message", "Inscrição realizada com sucesso!"));
     }
 }

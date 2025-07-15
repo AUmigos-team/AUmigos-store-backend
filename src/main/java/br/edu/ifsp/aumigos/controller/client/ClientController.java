@@ -62,7 +62,7 @@ public class ClientController {
 
             clientService.save(client);
             Map<String, Object> response = Map.of(
-                    "message", "Client updated successfully",
+                    "message", "Usuário atualizado com sucesso!",
                     "client", Map.of(
                             "name", client.getName(),
                             "profilePicture", client.getProfilePicture()

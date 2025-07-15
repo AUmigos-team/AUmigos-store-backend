@@ -45,7 +45,7 @@ public class OrderService {
         BigDecimal totalValue = BigDecimal.ZERO;
         Cart cart = cartService.findByClientId(clientId);
 
-        if (cart == null || cart.getItems().isEmpty()) throw new RuntimeException("Cart is empty or does not exist for client ID: " + clientId);
+        if (cart == null || cart.getItems().isEmpty()) throw new RuntimeException("O carrinho está vazio ou não existe.");
 
         Order order = new Order();
         order.setClient(clientService.getClientById(clientId));
@@ -65,7 +65,7 @@ public class OrderService {
             Product product = productService.getProductById(entry.getKey());
             Integer quantity = entry.getValue();
 
-            if (!stockService.isProductInStock(product.getId(), quantity)) throw new RuntimeException("Product " + product.getId() + " is out of stock or insufficient quantity");
+            if (!stockService.isProductInStock(product.getId(), quantity)) throw new RuntimeException("O produto " + product.getName() + " está fora de estoque ou não tem quantidade suficiente.");
             stockService.updateStock(product.getId(), -quantity);
 
             OrderItem orderItem = new OrderItem();
