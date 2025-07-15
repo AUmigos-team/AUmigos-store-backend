@@ -205,6 +205,12 @@ insert into stock (quantity, product_id) values
 #     ('Maria Oliveira', 'maria@example.com', '11999990002', 'Av. Brasil, 456'),
 #     ('Carlos Souza', 'carlos@example.com', '11999990003', 'Rua A, 789');
 
+UPDATE brand SET image_url = 'assets/brands/premierpet.png' WHERE name = 'Premier Pet';
+UPDATE brand SET image_url = 'assets/brands/whiskas.png' WHERE name = 'Whiskas';
+UPDATE brand SET image_url = 'assets/brands/bayer.png' WHERE name = 'Bayer';
+UPDATE brand SET image_url = 'assets/brands/golden.png' WHERE name = 'Golden';
+UPDATE brand SET image_url = 'assets/brands/petz.png' WHERE name = 'Petz';
+
 INSERT INTO review (product_id, client_id, grade, comment, date) VALUES
     (1, 1, 5, 'Meu cachorro adorou essa ração!', '2024-06-01'),
     (2, 2, 4, 'Muito boa, mas o pacote podia ser maior.', '2024-06-03'),
@@ -226,10 +232,3 @@ INSERT INTO review (product_id, client_id, grade, comment, date) VALUES
     (35, 1, 4, 'Fácil de usar e limpar.', '2024-06-30'),
     (38, 3, 5, 'Meu gato não larga mais esse brinquedo.', '2024-07-01'),
     (40, 2, 4, 'Bom produto, mas poderia ser mais barato.', '2024-07-02');
-
-
-UPDATE brand SET image_url = 'assets/brands/premierpet.png' WHERE name = 'Premier Pet';
-UPDATE brand SET image_url = 'assets/brands/whiskas.png' WHERE name = 'Whiskas';
-UPDATE brand SET image_url = 'assets/brands/bayer.png' WHERE name = 'Bayer';
-UPDATE brand SET image_url = 'assets/brands/golden.png' WHERE name = 'Golden';
-UPDATE brand SET image_url = 'assets/brands/petz.png' WHERE name = 'Petz';
