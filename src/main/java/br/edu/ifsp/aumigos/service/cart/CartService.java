@@ -6,7 +6,6 @@ import br.edu.ifsp.aumigos.repository.cart.CartItemRepository;
 import br.edu.ifsp.aumigos.repository.cart.CartRepository;
 import br.edu.ifsp.aumigos.service.client.ClientService;
 import br.edu.ifsp.aumigos.service.product.ProductService;
-import br.edu.ifsp.aumigos.service.product.StockService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -22,7 +21,6 @@ public class CartService {
     private final CartItemRepository cartItemRepository;
     private final ProductService productService;
     private final ClientService clientService;
-    private final StockService stockService;
 
     public Cart findByClientId(Integer clientId) {
         Cart cart = cartRepository.findByClientId(clientId);
@@ -45,7 +43,7 @@ public class CartService {
 
     public void addProductToCart(Integer productId, Integer clientId) {
 
-        if(!stockService.isProductInStock(productId, 1)) throw new RuntimeException("Product is out of stock");
+        if(!productService.isProductInStock(productId, 1)) throw new RuntimeException("Product is out of stock");
 
         Cart cart = cartRepository.findByClientId(clientId);
 

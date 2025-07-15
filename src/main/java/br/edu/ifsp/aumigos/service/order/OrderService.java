@@ -7,14 +7,12 @@ import br.edu.ifsp.aumigos.model.order.OrderItem;
 import br.edu.ifsp.aumigos.model.order.PaymentMethod;
 import br.edu.ifsp.aumigos.model.order.Status;
 import br.edu.ifsp.aumigos.model.product.Product;
-import br.edu.ifsp.aumigos.repository.order.OrderItemRepository;
 import br.edu.ifsp.aumigos.repository.order.OrderRepository;
 import br.edu.ifsp.aumigos.repository.order.PaymentMethodRepository;
 import br.edu.ifsp.aumigos.repository.order.StatusRepository;
 import br.edu.ifsp.aumigos.service.cart.CartService;
 import br.edu.ifsp.aumigos.service.client.ClientService;
 import br.edu.ifsp.aumigos.service.product.ProductService;
-import br.edu.ifsp.aumigos.service.product.StockService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -32,8 +30,6 @@ import java.util.Map;
 public class OrderService {
 
     private final OrderRepository orderRepository;
-    private final OrderItemRepository orderItemRepository;
-    private final StockService stockService;
     private final ClientService clientService;
     private final PaymentMethodRepository paymentMethodRepository;
     private final StatusRepository statusRepository;
@@ -65,8 +61,8 @@ public class OrderService {
             Product product = productService.getProductById(entry.getKey());
             Integer quantity = entry.getValue();
 
-            if (!stockService.isProductInStock(product.getId(), quantity)) throw new RuntimeException("Product " + product.getId() + " is out of stock or insufficient quantity");
-            stockService.updateStock(product.getId(), -quantity);
+            if (!productService.isProductInStock(product.getId(), quantity)) throw new RuntimeException("Product " + product.getId() + " is out of stock or insufficient quantity");
+            productService.updateStock(product.getId(), -quantity);
 
             OrderItem orderItem = new OrderItem();
             orderItem.setOrder(order);
