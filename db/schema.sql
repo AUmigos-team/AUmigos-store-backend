@@ -15,6 +15,7 @@ drop table if exists category;
 drop table if exists client;
 drop table if exists status;
 drop table if exists payment_method;
+drop table if exists newsletter;
 
 create table category (
     id int primary key auto_increment,
@@ -133,3 +134,9 @@ create table cart_item (
     foreign key (cart_id) references cart(id),
     foreign key (product_id) references product(id)
 );
+
+create table newsletter (
+    id int primary key auto_increment,
+    email varchar(150) not null unique,
+    pet_options varchar(255) not null
+)
