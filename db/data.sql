@@ -55,18 +55,18 @@ INSERT INTO brand (name) VALUES
 
 INSERT INTO subcategory (name, category_id, image) VALUES
     -- Cachorro
-    ('Ração', 1, 'subcategories/dog/racao.sql-selections.png'),
+    ('Ração', 1, 'subcategories/dog/racao-selections.png'),
     ('Petiscos', 1, 'subcategories/dog/petisco-e-osso.png'),
     ('Higiene', 1, 'subcategories/dog/higiene.png'),
     ('Roupas', 1, 'subcategories/dog/roupas-de-verao-e-inverno.png'),
-    ('Brinquedos', 1, 'subcategories/dog/brinquedos.sql.sql-cachorro.png'),
-    ('Acessórios', 1, 'subcategories/dog/acessorios.sql.png'),
+    ('Brinquedos', 1, 'subcategories/dog/brinquedos-cachorro.png'),
+    ('Acessórios', 1, 'subcategories/dog/acessorios.png'),
 
     -- Gato
-    ('Ração', 2, 'subcategories/cat/racao.sql.png'),
+    ('Ração', 2, 'subcategories/cat/racao.png'),
     ('Petiscos', 2, 'subcategories/cat/petisco.png'),
-    ('Higiene', 2, 'subcategories/cat/higiene-1.png'), -- renomeie esse arquivo!
-    ('Brinquedos', 2, 'subcategories/cat/brinquedos.sql.sql.png'),
+    ('Higiene', 2, 'subcategories/cat/higiene-1.png'),
+    ('Brinquedos', 2, 'subcategories/cat/brinquedos.png'),
     ('Acessórios', 2, 'subcategories/cat/coleiras-guia-e-peitoral.png'),
 
     -- Categoria 3: Pássaro
