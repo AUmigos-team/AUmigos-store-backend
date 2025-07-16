@@ -51,7 +51,7 @@ create table product (
 create table stock (
     id int primary key auto_increment,
     quantity int not null,
-    product_id int,
+    product_id int unique,
     foreign key (product_id) references product(id)
 );
 
