@@ -86,23 +86,23 @@ UPDATE brand SET image_url = 'assets/brands/golden.png' WHERE name = 'Golden';
 UPDATE brand SET image_url = 'assets/brands/petz.png' WHERE name = 'Petz';
 
 INSERT INTO review (product_id, client_id, grade, comment, date) VALUES
-    (1, 1, 5, 'Meu cachorro adorou essa ração!', '2024-06-01'),
-    (2, 2, 4, 'Muito boa, mas o pacote podia ser maior.', '2024-06-03'),
-    (3, 1, 5, 'Biscoito excelente para treinar comandos.', '2024-06-05'),
-    (5, 3, 4, 'Shampoo bom, mas o cheiro podia durar mais.', '2024-06-07'),
+    (245, 1, 5, 'Meu cachorro adorou essa ração!', '2024-06-01'),
+    (74, 2, 4, 'Muito boa, mas o pacote podia ser maior.', '2024-06-03'),
+    (665, 1, 5, 'Biscoito excelente para treinar comandos.', '2024-06-05'),
+    (200, 3, 4, 'Shampoo bom, mas o cheiro podia durar mais.', '2024-06-07'),
     (6, 1, 5, 'A coleira realmente resolveu o problema de pulgas.', '2024-06-10'),
-    (8, 2, 3, 'Meu cachorro enjoou rápido.', '2024-06-12'),
+    (123, 2, 3, 'Meu cachorro enjoou rápido.', '2024-06-12'),
     (10, 3, 5, 'Muito prático para passeios!', '2024-06-15'),
-    (12, 2, 4, 'Ajudou bem na limpeza dos dentes.', '2024-06-17'),
+    (68, 2, 4, 'Ajudou bem na limpeza dos dentes.', '2024-06-17'),
     (14, 1, 5, 'Ficou lindo no meu dog, super quentinho.', '2024-06-20'),
     (17, 3, 5, 'Tapete de boa qualidade, segura bem o xixi.', '2024-06-22'),
-    (18, 2, 4, 'Produto macio, meu gato adorou.', '2024-06-23'),
-    (20, 1, 5, 'Excelente ração, meu peixe ficou mais ativo.', '2024-06-24'),
+    (76, 2, 4, 'Produto macio, meu gato adorou.', '2024-06-23'),
+    (400, 1, 5, 'Excelente ração, meu peixe ficou mais ativo.', '2024-06-24'),
     (22, 3, 3, 'Entrega rápida, mas embalagem veio amassada.', '2024-06-25'),
     (25, 2, 5, 'Brinquedo resistente, meu cachorro não destruiu.', '2024-06-26'),
     (27, 1, 4, 'Ótimo custo-benefício.', '2024-06-27'),
     (30, 3, 2, 'Meu pet não se adaptou ao produto.', '2024-06-28'),
     (33, 2, 5, 'Muito cheiroso, recomendo!', '2024-06-29'),
-    (35, 1, 4, 'Fácil de usar e limpar.', '2024-06-30'),
+    (400, 1, 4, 'Fácil de usar e limpar.', '2024-06-30'),
     (38, 3, 5, 'Meu gato não larga mais esse brinquedo.', '2024-07-01'),
-(40, 2, 4, 'Bom produto, mas poderia ser mais barato.', '2024-07-02');
+(200, 2, 4, 'Bom produto, mas poderia ser mais barato.', '2024-07-02');
