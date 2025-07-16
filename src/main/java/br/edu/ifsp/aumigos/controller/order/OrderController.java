@@ -66,9 +66,10 @@ public class OrderController {
                           "Supports pagination with page number and size parameters.")
     public Page<Order> getOrderHistory(
             @RequestParam(name = "page", defaultValue = "0") int page,
-            @RequestParam(name = "size", defaultValue = "5") int size
+            @RequestParam(name = "size", defaultValue = "5") int size,
+            @RequestParam(name = "status", required = false) String status
     ) {
-        return orderService.getOrderHistoryByClientId(JwtUtil.getAuthenticatedClient().getId(), page, size);
+        return orderService.getOrderHistoryByClientId(JwtUtil.getAuthenticatedClient().getId(), page, size, status);
     }
 
     @GetMapping("/paymentMethods")

@@ -80,9 +80,9 @@ public class OrderService {
         cartService.deleteCart(clientId);
     }
 
-    public Page<Order> getOrderHistoryByClientId(int clientId, int page, int size) {
+    public Page<Order> getOrderHistoryByClientId(int clientId, int page, int size, String status) {
         Pageable pageable = PageRequest.of(page, size);
-        return orderRepository.findByClientId(clientId, pageable);
+        return orderRepository.findByClientId(clientId, pageable, status);
     }
 
     public List<PaymentMethod> getPaymentMethods() {

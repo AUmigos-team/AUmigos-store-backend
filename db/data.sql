@@ -86,61 +86,166 @@ INSERT INTO subcategory (name, category_id, image) VALUES
 
 
 insert into product (name, description, price, subcategory_id, brand_id, image_url) values
+    -- Produto de Acessórios Cachorro
     ('Peitoral Ferplast Agila Fluo Amarelo e Preto Para Cães', 'Tamanho 4', 50.99, 6, 1, 'https://images.petz.com.br/fotos/10031110004144-1_mini.jpg'),
+    -- Produto de Higiene Gato
     ('Creme Hidratante Fresh Care Focinhos para Cães e Gatos 60g', '', 26.39, 9, 2, 'https://images.petz.com.br/fotos/1721940382936_mini.jpg'),
-    ('Arranhador de Papelão Cansei de Ser Gato', '', 10, 11, 3, 'https://images.petz.com.br/fotos/20037081000511_1742392570674_mini.jpg'),
+    -- Produto de Brinquedos Gato
+    ('Arranhador de Papelão Cansei de Ser Gato', '', 10, 10, 3, 'https://images.petz.com.br/fotos/20037081000511_1742392570674_mini.jpg'),
+    -- Produto de Higiene Cachorro
     ('Antipulgas e Carrapatos NexGard Spectra para Cães de 30,1 a 60kg', '1 Tablete', 126.69, 3, 4, 'https://images.petz.com.br/fotos/1625068040696_mini.jpg'),
-    ('Gravatinha Cansei de Ser Gato Rosa', '', 12, 12, 3, 'https://images.petz.com.br/fotos/1672842425097_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Gravatinha Cansei de Ser Gato Rosa', '', 12, 11, 3, 'https://images.petz.com.br/fotos/1672842425097_mini.jpg'),
+    -- Produto de Higiene Cachorro
     ('Tapete Higiênico Super Secão Max Citrus Slim para Cães', '30 Unidades', 75.99, 3, 5, 'https://images.petz.com.br/fotos/1721844114361_mini.jpg'),
+    -- Produto de Acessórios Cachorro
     ('Cama Spike Listra Verde para Cães e Gatos', 'Tamanho P', 6, 6, 6, 'https://images.petz.com.br/fotos/1721736208547_mini.jpg'),
+    -- Produto de Higiene Gato
     ('Granulado Higiênico Kat Bom Tradicional Para Gatos', '3 Kilos', 9, 9, 7, 'https://images.petz.com.br/fotos/1666703861106_mini.jpg'),
-    ('Alimento Alcon Club Reptolife para Tartarugas', '30 Gramas', 13, 13, 8, 'https://images.petz.com.br/fotos/1656513115433_mini.jpg'),
+    -- Produto de Ração Outros Pets (Roedor)
+    ('Alimento Alcon Club Reptolife para Tartarugas', '30 Gramas', 13, 15, 8, 'https://images.petz.com.br/fotos/1656513115433_mini.jpg'),
+    -- Produto de Petiscos Cachorro
     ('Petisco Selections Cuidado Oral Pequeno para Cães', '45 Gramas', 2, 2, 9, 'https://images.petz.com.br/fotos/1718980002182_mini.jpg'),
+    -- Produto de Acessórios Cachorro
     ('Peitoral Ferplast Agila Fluo Azul Para Cães', 'Tamanho 1', 6, 6, 1, 'https://images.petz.com.br/fotos/10031110005325_1738676309046_mini.jpg'),
-    ('Fantasia Juba de Leão Cansei de Ser Gato', '', 14, 14, 3, 'https://images.petz.com.br/fotos/1672837479083_mini.jpg'),
+    -- Produto de Brinquedos Gato
+    ('Fantasia Juba de Leão Cansei de Ser Gato', '', 14, 10, 3, 'https://images.petz.com.br/fotos/1672837479083_mini.jpg'),
+    -- Produto de Acessórios Cachorro
     ('Coleira Ferplast Ergofluo C Para Cães Amarelo', 'Tamanho 1', 6, 6, 1, 'https://images.petz.com.br/fotos/10031110004124-1_mini.jpg'),
+    -- Produto de Higiene Cachorro
     ('Tapete Higiênico Fresh Pads Slim M para Cães', '7 Unidades', 3, 3, 2, 'https://images.petz.com.br/fotos/1721828700211_mini.jpg'),
-    ('Comedouro Ferplast para Gatos Venere Small', '', 12, 12, 1, 'https://images.petz.com.br/fotos/1523977988133_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Comedouro Ferplast para Gatos Venere Small', '', 12, 11, 1, 'https://images.petz.com.br/fotos/1523977988133_mini.jpg'),
+    -- Produto de Petiscos Cachorro
     ('Bifinho Selections For Pets Strip para Cães Sabor Carne', '500 Gramas', 2, 2, 9, 'https://images.petz.com.br/fotos/1701975978369_mini.jpg'),
+    -- Produto de Acessórios Cachorro
     ('Peitoral Ferplast Easy Colours Para Cães Verde', 'Tamanho G', 6, 6, 1, 'https://images.petz.com.br/fotos/10031110004166-1_mini.jpg'),
-    ('Gravatinha Cansei de Ser Gato Azul', '', 12, 12, 3, 'https://images.petz.com.br/fotos/1672842197912_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Gravatinha Cansei de Ser Gato Azul', '', 12, 11, 3, 'https://images.petz.com.br/fotos/1672842197912_mini.jpg'),
+    -- Produto de Ração Outros Pets (Roedor)
     ('Ração Megazoo para Porquinho da Índia Adulto', '500 Gramas', 15, 15, 10, 'https://images.petz.com.br/fotos/1490381652599_mini.jpg'),
+    -- Produto de Higiene Cachorro
     ('Anti Pulgas e Carrapatos NexGard Spectra para Cães de 2 a 3,5kg', '1 Tablete', 3, 3, 4, 'https://images.petz.com.br/fotos/1625067373310_mini.jpg'),
-    ('Refil Arranhador de Papelão Cansei de Ser Gato', '', 11, 11, 3, 'https://images.petz.com.br/fotos/20037081000512_1742392855294_mini.jpg'),
+    -- Produto de Brinquedos Gato
+    ('Refil Arranhador de Papelão Cansei de Ser Gato', '', 10, 10, 3, 'https://images.petz.com.br/fotos/20037081000512_1742392855294_mini.jpg'),
+    -- Produto de Higiene Cachorro
     ('Banho a Seco Vet+ 20 Para Cães Filhotes', '', 3, 3, 11, 'https://images.petz.com.br/fotos/10031220000792_1743698983422_mini.jpg'),
+    -- Produto de Acessórios Cachorro
     ('Grade de Segurança Furacão Pet com Extensor Branca', '', 6, 6, 12, 'https://images.petz.com.br/fotos/1574711509428_mini.jpg'),
+    -- Produto de Higiene Gato
     ('Areia Higiênica Pipicat Classic para Gatos', '4 Kilos', 9, 9, 13, 'https://images.petz.com.br/fotos/1713268716370_mini.jpg'),
+    -- Produto de Acessórios Cachorro
     ('Peitoral Ferplast Agila Fluo Laranja Para Cães', 'Tamanho 1', 6, 6, 1, 'https://images.petz.com.br/fotos/1518013678558_mini.jpg'),
+    -- Produto de Acessórios Cachorro
     ('Coleira Ferplast Ergocomfort Linear para Cães', 'Tamanho P', 6, 6, 1, 'https://images.petz.com.br/fotos/10031110002518-1_mini.jpg'),
-    ('Brinquedo Play Truqys para Gatos Rosa', '', 11, 11, 14, 'https://images.petz.com.br/fotos/1636640745778_mini.jpg'),
+    -- Produto de Brinquedos Gato
+    ('Brinquedo Play Truqys para Gatos Rosa', '', 10, 10, 14, 'https://images.petz.com.br/fotos/1636640745778_mini.jpg'),
+    -- Produto de Higiene Gato
     ('Granulado Higiênico de Madeira Like Cat', '2 Kilos', 9, 9, 15, 'https://images.petz.com.br/fotos/1606938238180_mini.jpg'),
+    -- Produto de Ração Cachorro
     ('Ração Seca Royal Canin Veterinary Diet Hypoallergenic Small Dog para Cães Pequenos com Sensibilidades Alimentares', '2 Kilos', 1, 1, 16, 'https://images.petz.com.br/fotos/1711998189686_mini.jpg'),
+    -- Produto de Higiene Cachorro
     ('Antipulgas e Carrapatos Bravecto MSD para Cães de 4,5 a 10 kg', '1 Unidade', 3, 3, 17, 'https://images.petz.com.br/fotos/1699967754979_mini.jpg'),
-    ('Fantasia de Unicórnio Cansei de Ser Gato', '', 14, 14, 3, 'https://images.petz.com.br/fotos/1672837291809_mini.jpg'),
+    -- Produto de Brinquedos Gato
+    ('Fantasia de Unicórnio Cansei de Ser Gato', '', 14, 10, 3, 'https://images.petz.com.br/fotos/1672837291809_mini.jpg'),
+    -- Produto de Acessórios Cachorro
     ('Peitoral Ferplast Agila Fluo Amarelo e Preto Para Cães', 'Tamanho 1', 6, 6, 1, 'https://images.petz.com.br/fotos/1558034331293_mini.jpg'),
+    -- Produto de Higiene Gato
     ('Areia Higiênica Gatíssimo para Gatos Perfumada', '4 Kilos', 9, 9, 18, 'https://images.petz.com.br/fotos/1627479424961_mini.jpg'),
+    -- Produto de Ração Cachorro
     ('Ração Seca Royal Canin Canine Veterinary Diet Satiety para Cães Adultos de Porte Pequeno com Excesso de Peso', '1,5 Kilos', 1, 1, 16, 'https://images.petz.com.br/fotos/1712059535460_mini.jpg'),
+    -- Produto de Ração Cachorro
     ('Ração Fórmula Natural para Cães Adultos de Raças Médias e Grandes 15kg', '', 1, 1, 19, 'https://images.petz.com.br/fotos/1724765836616_mini.jpg'),
-    ('Gravatinha Cansei de Ser Gato Preta', '', 12, 12, 3, 'https://images.petz.com.br/fotos/1672842271265_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Gravatinha Cansei de Ser Gato Preta', '', 12, 11, 3, 'https://images.petz.com.br/fotos/1672842271265_mini.jpg'),
+    -- Produto de Ração Outros Pets (Roedor)
     ('Alimento Supra Funny Bunny Delícias da Horta para Roedores', '500 Gramas', 15, 15, 20, 'https://images.petz.com.br/fotos/1626379061364_mini.jpg'),
+    -- Produto de Higiene Cachorro
     ('Tapete Higiênico Fresh Pads Jumbo P para Cães', '14 Unidades', 3, 3, 2, 'https://images.petz.com.br/fotos/1721828017355_mini.jpg'),
-    ('Túnel Dobrável Cansei de Ser Gato', '', 12, 12, 3, 'https://images.petz.com.br/fotos/1689275312133_mini.jpg'),
+    -- Produto de Brinquedos Cachorro
     ('Brinquedo Spike Bola Crocante para Cães', '', 5, 5, 21, 'https://images.petz.com.br/fotos/10037080003992_1751379579615_mini.jpg'),
+    -- Produto de Acessórios Cachorro
     ('Peitoral Spike Pinkchess para Cães', 'Tamanho PP', 6, 6, 6, 'https://images.petz.com.br/fotos/1672935047791_mini.jpg'),
-    ('Comedouro Cansei de Ser Gato Raso Sachê', '', 12, 12, 3, 'https://images.petz.com.br/fotos/1659538641855_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Comedouro Cansei de Ser Gato Raso Sachê', '', 12, 11, 3, 'https://images.petz.com.br/fotos/1659538641855_mini.jpg'),
+    -- Produto de Petiscos Cachorro
     ('Petisco Selections Cuidado Oral Médio para Cães', '75 Gramas', 2, 2, 9, 'https://images.petz.com.br/fotos/1718980162673_mini.jpg'),
+    -- Produto de Petiscos Cachorro
     ('Biscoito Selections For Pets Clássico para Cães Adultos', '500 Gramas', 2, 2, 9, 'https://images.petz.com.br/fotos/1702067989512_mini.jpg'),
+    -- Produto de Higiene Casa e Jardim
     ('Desinfetante Petz Lavanda 1 Litro', '', 18, 18, 22, 'https://images.petz.com.br/fotos/10031200000377_1732906223798_mini.jpg'),
+    -- Produto de Ração Outros Pets (Roedor)
     ('Alimento Roedor Petz Frutas, Legumes e Sementes para Hamster e Gerbil - 300g', '', 15, 15, 22, 'https://images.petz.com.br/fotos/1725980471136_mini.jpg'),
+    -- Produto de Petiscos Cachorro
     ('Petisco Selections For Pets Stick para Cães Sabor Carne', '45 Gramas', 2, 2, 9, 'https://images.petz.com.br/fotos/1701975290316_mini.jpg'),
+    -- Produto de Higiene Casa e Jardim
     ('Luva Petz Tira Pelos para Cães e Gatos - Cores Sortidas', '', 18, 18, 22, 'https://images.petz.com.br/fotos/10031590000500_1731439497087_mini.jpg'),
-    ('Comedouro Cansei de Ser Gato Quero + Ração', '', 12, 12, 3, 'https://images.petz.com.br/fotos/1659537071873_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Comedouro Cansei de Ser Gato Quero + Ração', '', 12, 11, 3, 'https://images.petz.com.br/fotos/1659537071873_mini.jpg'),
+    -- Produto de Petiscos Cachorro
     ('Biscoito Selections For Pets Mini para Cães Adultos', '500 Gramas', 2, 2, 9, 'https://images.petz.com.br/fotos/1719334094982_mini.jpg'),
+    -- Produto de Higiene Gato
     ('Creme Hidratante Fresh Care Patinhas para Cães 150g', '', 9, 9, 2, 'https://images.petz.com.br/fotos/1721938949099_mini.jpg'),
+    -- Produto de Higiene Casa e Jardim
     ('Cortador de Unhas Petz para Cães e Gatos - Cores Sortidas', '', 18, 18, 22, 'https://images.petz.com.br/fotos/1725978080354_mini.jpg'),
+    -- Produto de Petiscos Cachorro
     ('Bifinho Selections For Pets Strip para Cães Sabor Frango', '60 Gramas', 2, 2, 9, 'https://images.petz.com.br/fotos/1701977902274_mini.jpg'),
+    -- Produto de Higiene Cachorro
     ('Tapete Higiênico Zee.Pad Preto para Cães Zee.Dog', '5 Unidades', 3, 3, 23, 'https://images.petz.com.br/fotos/1709312305570_mini.jpg'),
-    ('Comedouro Cansei de Ser Gato Alto de Madeira Individual', '', 12, 12, 3, 'https://images.petz.com.br/fotos/1669726948956_mini.jpg');
+    -- Produto de Acessórios Gato
+    ('Comedouro Cansei de Ser Gato Alto de Madeira Individual', '', 12, 11, 3, 'https://images.petz.com.br/fotos/1669726948956_mini.jpg'),
+    -- Produto de Brinquedos Cachorro
+    ('Brinquedo de Pelúcia Spike Ouriço para Cães', '', 5, 5, 13, 'https://images.petz.com.br/fotos/10037080004208_1737741493755_mini.jpg'),
+    -- Produto de Higiene Cachorro
+    ('Desinfetante e Bactericida Petz 1l', '', 3, 3, 29, 'https://images.petz.com.br/fotos/10031200000282_1732906172946_mini.jpg'),
+    -- Produto de Higiene Cachorro
+    ('Anti Pulgas e Carrapatos NexGard Spectra para Cães de 2 a 3,5kg', '1 Tablete', 3, 3, 11, 'https://images.petz.com.br/fotos/1625067373310_mini.jpg'),
+    -- Produto de Higiene Gato
+    ('Areia Higiênica Gatíssimo para Gatos Perfumada', '4 Kilos', 9, 9, 25, 'https://images.petz.com.br/fotos/1627479424961_mini.jpg'),
+    -- Produto de Higiene Cachorro
+    ('Tapete Higiênico Super Secão Max Slim para Cães', '10 Unidades', 3, 3, 12, 'https://images.petz.com.br/fotos/1721843703566_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Guia Petz Pastel Aqua para Cães', 'Tamanho PP/P', 12, 12, 29, 'https://images.petz.com.br/fotos/1676468309107_mini.jpg'),
+    -- Produto de Ração Outros Pets (Roedor)
+    ('Alimento Supra Funny Bunny Delícias da Horta para Roedores', '500 Gramas', 15, 15, 27, 'https://images.petz.com.br/fotos/1626379061364_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Peitoral Petz Pastel Aqua para Cães', 'Tamanho PP', 12, 12, 29, 'https://images.petz.com.br/fotos/1676559057899_mini.jpg'),
+    -- Produto de Higiene Gato
+    ('Areia Petz Ultra Absorção para Gatos 4 kg', '', 9, 9, 29, 'https://images.petz.com.br/fotos/20035570000060_1744749550790_mini.jpg'),
+    -- Produto de Acessórios Cachorro
+    ('Coleira Ferplast Ergocomfort Linear para Cães', 'Tamanho P', 6, 6, 8, 'https://images.petz.com.br/fotos/10031110002518-1_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Guia Petz Flúor Yellow para Cães', 'Tamanho PP/P', 12, 12, 29, 'https://images.petz.com.br/fotos/1676655034035_mini.jpg'),
+    -- Produto de Higiene Cachorro
+    ('Tapete Higiênico Fresh Pads Slim M para Cães', '7 Unidades', 3, 3, 9, 'https://images.petz.com.br/fotos/1721828700211_mini.jpg'),
+    -- Produto de Higiene Gato
+    ('Areia Higiênica Pipicat Floral para Gatos', '4 Kilos', 9, 9, 20, 'https://images.petz.com.br/fotos/20031570000015_1731444951903_mini.jpg'),
+    -- Produto de Higiene Cachorro
+    ('Tapete Higiênico Super Secão Max Citrus Slim para Cães', '30 Unidades', 3, 3, 12, 'https://images.petz.com.br/fotos/1721844114361_mini.jpg'),
+    -- Produto de Higiene Cachorro
+    ('Antipulgas e Carrapatos NexGard Spectra para Cães de 30,1 a 60kg', '1 Tablete', 3, 3, 11, 'https://images.petz.com.br/fotos/1625068040696_mini.jpg'),
+    -- Produto de Higiene Gato
+    ('Granulado Higiênico de Madeira Like Cat', '2 Kilos', 9, 9, 22, 'https://images.petz.com.br/fotos/1606938238180_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Guia Petz Flúor Orange para Cães', 'Tamanho PP/P', 12, 12, 29, 'https://images.petz.com.br/fotos/1676653659296_mini.jpg'),
+    -- Produto de Higiene Gato
+    ('Areia Higiênica Cansei de Ser Gato Biodegradável Grãos Finos', '2 Kilos', 9, 9, 10, 'https://images.petz.com.br/fotos/1689697227196_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Peitoral Petz Flúor Yellow para Cães', 'Tamanho PP', 12, 12, 29, 'https://images.petz.com.br/fotos/1676490305365_mini.jpg'),
+    -- Produto de Acessórios Cachorro
+    ('Guia Spike Bluechess para Cães', 'Tamanho P', 12, 12, 13, 'https://images.petz.com.br/fotos/1725977399326_mini.jpg'),
+    -- Produto de Higiene Cachorro
+    ('Tapete Higiênico Fresh Pads Slim P para Cães', '7 Unidades', 3, 3, 9, 'https://images.petz.com.br/fotos/10035181000007_1742902359429_mini.jpg'),
+    -- Produto de Higiene Gato
+    ('Granulado Higiênico Petz Biodegradável Cereais para Gatos 3kg', '1 Unidade', 9, 9, 29, 'https://images.petz.com.br/fotos/1725981530542_mini.jpg'),
+    -- Produto de Acessórios Gato
+    ('Peitoral Petz Flúor Orange para Cães', 'Tamanho PP', 12, 12, 29, 'https://images.petz.com.br/fotos/1676488239867_mini.jpg'),
+    -- Produto de Acessórios Cachorro
+    ('Guia Spike Doodle para Cães', 'Tamanho P', 12, 12, 13, 'https://images.petz.com.br/fotos/1725977268713_mini.jpg'),
+    -- Produto de Higiene Cachorro
+    ('Tapete Higiênico Fresh Pads Jumbo M para Cães', '14 Unidades', 3, 3, 9, 'https://images.petz.com.br/fotos/1721827840250_mini.jpg'),
+    -- Produto de Higiene Gato
+    ('Areia Higiênica Fresh Grãos Finos para Gatos', '4 Kilos', 9, 9, 9, 'https://images.petz.com.br/fotos/20035570000081_1738775909227_mini.jpg');
 
 insert into stock (quantity, product_id) values
     (26, 1),
@@ -197,7 +302,25 @@ insert into stock (quantity, product_id) values
     (100, 52),
     (100, 53),
     (100, 54),
-    (54, 55);
+    (54, 55),
+    (100, 56),
+    (100, 57),
+    (100, 58),
+    (100, 59),
+    (100, 60),
+    (100, 61),
+    (100, 62),
+    (100, 63),
+    (100, 64),
+    (100, 65),
+    (100, 66),
+    (100, 67),
+    (100, 68),
+    (100, 69),
+    (100, 70),
+    (100, 71),
+    (100, 72),
+    (100, 73);
 
 # CLIENTES DEVEM SER GERADOS MANUALMENTE VIA API
 # INSERT INTO client (name, email, phone, address) VALUES
@@ -231,4 +354,4 @@ INSERT INTO review (product_id, client_id, grade, comment, date) VALUES
     (33, 2, 5, 'Muito cheiroso, recomendo!', '2024-06-29'),
     (35, 1, 4, 'Fácil de usar e limpar.', '2024-06-30'),
     (38, 3, 5, 'Meu gato não larga mais esse brinquedo.', '2024-07-01'),
-    (40, 2, 4, 'Bom produto, mas poderia ser mais barato.', '2024-07-02');
+(40, 2, 4, 'Bom produto, mas poderia ser mais barato.', '2024-07-02');

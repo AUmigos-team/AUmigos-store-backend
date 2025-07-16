@@ -8,6 +8,9 @@ import org.springframework.data.jpa.repository.Query;
 
 public interface OrderRepository extends JpaRepository<Order, Integer> {
 
-    @Query("select o from Order o where o.client.id = :clientId order by o.id desc")
-    Page<Order> findByClientId(Integer clientId, Pageable pageable);
+    @Query("select o from Order o " +
+            "where o.client.id = :clientId " +
+            "and (:status is null or o.status.name = :status) " +
+            "order by o.id desc")
+    Page<Order> findByClientId(Integer clientId, Pageable pageable, String status);
 }
