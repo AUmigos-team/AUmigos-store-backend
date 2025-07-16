@@ -803,7 +803,7 @@ INSERT INTO product (name, description, price, image_url, subcategory_id, brand_
 INSERT INTO stock (quantity, product_id) VALUES (100, LAST_INSERT_ID());INSERT INTO brand (name, image_url) VALUES ('American Pets', 'assets/brands/american_pets.png');
 INSERT INTO brand (name, image_url) VALUES ('Bonito pra Cachorro', 'assets/brands/bonito_pra_cachorro.png');
 INSERT INTO brand (name, image_url) VALUES ('Fábrica Pet', 'assets/brands/fábrica_pet.png');
-INSERT INTO brand (name, image_url) VALUES ('Griff Dog', 'assets/brands/griff_dog.png');
+# INSERT INTO brand (name, image_url) VALUES ('Griff Dog', 'assets/brands/griff_dog.png');
 INSERT INTO brand (name, image_url) VALUES ('Napi', 'assets/brands/napi.png');
 INSERT INTO brand (name, image_url) VALUES ('Náutica', 'assets/brands/náutica.png');
 INSERT INTO brand (name, image_url) VALUES ('Petix', 'assets/brands/petix.png');
@@ -1717,7 +1717,7 @@ INSERT INTO stock (quantity, product_id) VALUES (100, LAST_INSERT_ID());
 INSERT INTO product (name, description, price, image_url, subcategory_id, brand_id) VALUES
     ('Raticida Bayer Rodilon Pellets', 'No description available.', 7.12, 'https://images.petz.com.br/fotos/1718208108808_mini.jpg', 18, (SELECT id FROM brand WHERE name = 'Bayer Pet'));
 INSERT INTO stock (quantity, product_id) VALUES (100, LAST_INSERT_ID());
-INSERT INTO brand (name, image_url) VALUES ('Griff Dog', 'assets/brands/griff_dog.png');
+# INSERT INTO brand (name, image_url) VALUES ('Griff Dog', 'assets/brands/griff_dog.png');
 INSERT INTO brand (name, image_url) VALUES ('TOH', 'assets/brands/toh.png');
 
 INSERT INTO product (name, description, price, image_url, subcategory_id, brand_id) VALUES
@@ -2568,7 +2568,7 @@ INSERT INTO product (name, description, price, image_url, subcategory_id, brand_
 INSERT INTO stock (quantity, product_id) VALUES (100, LAST_INSERT_ID());
 INSERT INTO brand (name, image_url) VALUES ('Bragança', 'assets/brands/bragança.png');
 INSERT INTO brand (name, image_url) VALUES ('CarePet', 'assets/brands/carepet.png');
-INSERT INTO brand (name, image_url) VALUES ('Griff Dog', 'assets/brands/griff_dog.png');
+# INSERT INTO brand (name, image_url) VALUES ('Griff Dog', 'assets/brands/griff_dog.png');
 INSERT INTO brand (name, image_url) VALUES ('Nutrópica', 'assets/brands/nutrópica.png');
 INSERT INTO brand (name, image_url) VALUES ('Pet Injet', 'assets/brands/pet_injet.png');
 INSERT INTO brand (name, image_url) VALUES ('Progato', 'assets/brands/progato.png');
