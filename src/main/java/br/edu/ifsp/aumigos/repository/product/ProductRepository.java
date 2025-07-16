@@ -11,7 +11,9 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     @Query("""
         select p from Product p
         left join Review r on p.id = r.product.id
-        where (:category is null or p.subcategory.category.name = :category)
+        inner join Stock s on p.id = s.product.id
+        where s.quantity <> 0
+          and (:category is null or p.subcategory.category.name = :category)
           and (:subcategory is null or p.subcategory.name = :subcategory)
           and (:search is null or lower(p.name) like lower(concat('%', :search, '%'))
                           or lower(p.description) like lower(concat('%', :search, '%')))
