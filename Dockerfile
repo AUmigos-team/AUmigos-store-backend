@@ -1,5 +1,5 @@
 # Etapa de build
-FROM eclipse-temurin:17 AS build
+FROM eclipse-temurin:21 AS build
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ RUN chmod +x ./gradlew
 RUN ./gradlew build -x test --no-daemon
 
 # Etapa de execução
-FROM eclipse-temurin:17-jre
+FROM eclipse-temurin:21-jre
 
 WORKDIR /app
 
