@@ -5,4 +5,5 @@ import lombok.Data;
 @Data
 public class CartRequestBody {
     private Integer productId;
+    private Integer quantity;
 }

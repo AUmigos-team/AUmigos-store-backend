@@ -41,9 +41,9 @@ public class CartService {
         return cart;
     }
 
-    public void addProductToCart(Integer productId, Integer clientId) {
+    public void addProductToCart(Integer productId, Integer clientId, Integer quantity) {
 
-        if(!productService.isProductInStock(productId, 1)) throw new RuntimeException("O produto está fora de estoque ou não está disponível.");
+        if(!productService.isProductInStock(productId, quantity)) throw new RuntimeException("O produto está fora de estoque ou não está disponível.");
 
         Cart cart = cartRepository.findByClientId(clientId);
 
@@ -58,13 +58,13 @@ public class CartService {
         CartItem existingItem = getCartItemByProductId(cart, productId);
 
         if (existingItem != null) {
-            existingItem.setQuantity(existingItem.getQuantity() + 1);
+            existingItem.setQuantity(existingItem.getQuantity() + quantity);
             cartItemRepository.save(existingItem);
         } else {
             CartItem newItem = new CartItem();
             newItem.setCart(cart);
             newItem.setProduct(productService.getProductById(productId));
-            newItem.setQuantity(1);
+            newItem.setQuantity(quantity);
             cartItemRepository.save(newItem);
         }
 

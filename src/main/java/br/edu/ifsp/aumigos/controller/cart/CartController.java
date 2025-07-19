@@ -46,7 +46,7 @@ public class CartController {
     public ResponseEntity<?> add(@RequestBody CartRequestBody req) {
         Integer clientId = JwtUtil.getAuthenticatedClient().getId();
         try {
-            cartService.addProductToCart(req.getProductId(), clientId);
+            cartService.addProductToCart(req.getProductId(), clientId, req.getQuantity() == null ? 1 : req.getQuantity());
 
             return ResponseEntity.ok().body(Map.of(
                     "message", "Produto adicionado ao carrinho com sucesso!",
